@@ -6,22 +6,40 @@ import { v4 as uuid } from "uuid";
  * */
 
 export const categories = [
-  {
-    _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
-  },
-  {
-    _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
-  },
-  {
-    _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
-  },
+	{
+		_id: uuid(),
+		categoryName: "bats",
+		description:
+			"the bat usually made of willow with a long rectangular blade shaped like a paddle and a short handle used in cricket",
+	},
+	{
+		_id: uuid(),
+		categoryName: "balls",
+		description:
+			"A cricket ball consists of a cork core wound with string then a leather cover stitched on, and manufacture is regulated by cricket law at first-class level",
+	},
+	{
+		_id: uuid(),
+		categoryName: "helmet",
+		description:
+			"The cricket helmet is designed to stop serious injury occuring due to being hit on the head by the cricket ball.",
+	},
+	{
+		_id: uuid(),
+		categoryName: "pads",
+		description:
+			"Pads (also called leg guards) are protective equipment used by batters in the sport of cricket",
+	},
+	{
+		_id: uuid(),
+		categoryName: "clothes",
+		description:
+			"Cricket clothes are mostly the loose fitting clothes which are worn while playing cricket so as not to restrict the player's movement. ",
+	},
+	{
+		_id: uuid(),
+		categoryName: "shoes",
+		description:
+			"A cricket shoe is usually made up of an artificial leather known as PU or polyurethane. It is extremely soft and flexible to ensure the free movement of the feet.",
+	},
 ];
