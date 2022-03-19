@@ -1,0 +1,12 @@
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--COLOR-PRIMARY);
+	color: var(--COLOR-WHITE);
+}
+
+.footer * {
+    color: white;
+    line-height: 3;
+}
