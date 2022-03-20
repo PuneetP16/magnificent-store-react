@@ -1,43 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Card, Footer, Header } from "../../components";
+import { Card } from "../../components";
 import { banner2 } from "../../data/image/productImages";
-
 import { categories } from "../../backend/db/categories";
 import { products } from "../../backend/db/products";
 import "./Home.css";
 import { useDocumentTitle } from "../../customHooks/useDocumentTitle";
+import { CategoryCard } from "./CategoryCard/CategoryCard";
 
 export const Home = () => {
 	useDocumentTitle("Home | MS");
 
 	return (
-		<div className="body--homepage">
-			<Header />
+		<div>
 			<main className="main--homepage">
 				<section className="homepage__section categories">
 					<h2 className="h2 section__heading">Product Categories</h2>
 
 					<ul className="categories__items">
-						{categories.map((prodCat) => (
-							<li
-								key={prodCat._id}
-								style={{ backgroundColor: "white" }}
-								className="categories__list"
-							>
-								<Link to="/productlisting" className="categories__links">
-									<img
-										style={{ backgroundColor: "white" }}
-										src={prodCat.src}
-										alt="bat"
-										className="image--responsive"
-									/>
-									<span className="catergories__name">
-										Cricket {prodCat.categoryName}
-									</span>
-								</Link>
-							</li>
-						))}
+						<CategoryCard categories={categories} />
 					</ul>
 				</section>
 				<section className="promotion_container">
@@ -56,7 +36,6 @@ export const Home = () => {
 					</ul>
 				</section>
 			</main>
-			<Footer />
 		</div>
 	);
 };

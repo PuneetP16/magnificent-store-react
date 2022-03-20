@@ -6,10 +6,11 @@
 	display: grid;
 	min-height: 100vh;
 	grid-template-columns: 1fr;
-	grid-template-rows: 7rem 1fr;
+	grid-template-rows: 7rem 1fr 7rem;
 	grid-template-areas:
 		"header"
-		"main";
+		"main"
+		"footer";
 	transition: all 0.3s ease-in;
 }
 
@@ -18,6 +19,7 @@
 	flex-flow: column nowrap;
 	padding: 2rem 10rem;
 	gap: 3rem;
+	grid-area: main;
 }
 
 .section__heading {

@@ -5,11 +5,13 @@ import MockAPI from "./backend/mockdocs/MockMan";
 import { Cart, Home, Login, SignUp, Wishlist } from "./pages";
 import { ProductListing } from "./pages/ProductListing/ProductListing";
 import { useDocumentTitle } from "./customHooks/useDocumentTitle";
+import { Footer, Header } from "./components";
 
 function App() {
 	useDocumentTitle("MS | HOME");
 	return (
-		<div className="App">
+		<div className="App body--homepage">
+			<Header />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/mockbee" element={<MockBee />} />
@@ -20,6 +22,7 @@ function App() {
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/productlisting" element={<ProductListing />} />
 			</Routes>
+			<Footer />
 		</div>
 	);
 }

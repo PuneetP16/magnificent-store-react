@@ -1,4 +1,3 @@
-import { Footer, Header } from "../../components";
 import { useDocumentTitle } from "../../customHooks/useDocumentTitle";
 import "./Wishlist.css";
 
@@ -7,9 +6,7 @@ export const Wishlist = () => {
 
 	return (
 		<div className="body--homepage">
-			<Header />
 			<h2>Wishlist</h2>
-			<Footer />
 		</div>
 	);
 };
