@@ -1,6 +1,6 @@
-import React from "react";
-
+import "./Card.css";
 export const Card = ({ products, featured }) => {
+	console.log(featured);
 	return products.map((prod) => (
 		<li key={prod._id} className="categories__list">
 			<article
@@ -20,7 +20,7 @@ export const Card = ({ products, featured }) => {
 					</header>
 					<div className="card__body">
 						<div className="card__header_text">
-							<h2 className=" h5">{prod.title}</h2>
+							<h2 className=" h6">{prod.title}</h2>
 						</div>
 
 						<p className="card__price flex">

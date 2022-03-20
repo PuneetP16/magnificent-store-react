@@ -10,7 +10,7 @@ import { Footer, Header } from "./components";
 function App() {
 	useDocumentTitle("MS | HOME");
 	return (
-		<div className="App body--homepage">
+		<div className="App body">
 			<Header />
 			<Routes>
 				<Route path="/" element={<Home />} />

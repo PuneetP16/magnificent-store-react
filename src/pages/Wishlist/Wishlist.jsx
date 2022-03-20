@@ -5,7 +5,7 @@ export const Wishlist = () => {
 	useDocumentTitle("Wishlist | MS");
 
 	return (
-		<div className="body--homepage">
+		<div className="body">
 			<h2>Wishlist</h2>
 		</div>
 	);

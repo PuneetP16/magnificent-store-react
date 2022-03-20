@@ -6,6 +6,7 @@ import { products } from "../../backend/db/products";
 import "./Home.css";
 import { useDocumentTitle } from "../../customHooks/useDocumentTitle";
 import { CategoryCard } from "./CategoryCard/CategoryCard";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
 	useDocumentTitle("Home | MS");
@@ -21,9 +22,9 @@ export const Home = () => {
 					</ul>
 				</section>
 				<section className="promotion_container">
-					<a href="/pages/products/products.html">
+					<Link to="productListing">
 						<img src={banner2} alt="bats" className="image--responsive" />
-					</a>
+					</Link>
 				</section>
 				<section className="homepage__section items_container">
 					<h2 className="h2 section__heading"> Featured Products</h2>
