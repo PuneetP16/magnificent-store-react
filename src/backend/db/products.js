@@ -42,6 +42,7 @@ export const products = [
 		src: bat1,
 		categoryName: "bats",
 		inStock: true,
+		featured: true,
 	},
 	{
 		_id: uuid(),
@@ -54,6 +55,7 @@ export const products = [
 		src: bat2,
 		categoryName: "bats",
 		inStock: true,
+		featured: true,
 	},
 	{
 		_id: uuid(),
@@ -66,6 +68,7 @@ export const products = [
 		src: bat3,
 		categoryName: "bats",
 		inStock: true,
+		featured: false,
 	},
 	{
 		_id: uuid(),
@@ -77,7 +80,8 @@ export const products = [
 		},
 		src: ball1,
 		categoryName: "balls",
-		inStock: true,
+		inStock: false,
+		featured: false,
 	},
 	{
 		_id: uuid(),
@@ -89,7 +93,8 @@ export const products = [
 		},
 		src: ball2,
 		categoryName: "balls",
-		inStock: true,
+		featured: false,
+		inStock: false,
 	},
 	{
 		_id: uuid(),
@@ -101,6 +106,7 @@ export const products = [
 		},
 		src: ball3,
 		categoryName: "balls",
+		featured: true,
 		inStock: true,
 	},
 	{
@@ -113,7 +119,8 @@ export const products = [
 		},
 		src: bag1,
 		categoryName: "bags",
-		inStock: true,
+		featured: false,
+		inStock: false,
 	},
 	{
 		_id: uuid(),
@@ -126,6 +133,7 @@ export const products = [
 		src: bag2,
 		categoryName: "bags",
 		inStock: true,
+		featured: true,
 	},
 	{
 		_id: uuid(),
@@ -137,7 +145,8 @@ export const products = [
 		},
 		src: bag3,
 		categoryName: "bags",
-		inStock: true,
+		inStock: false,
+		featured: false,
 	},
 	{
 		_id: uuid(),
@@ -150,6 +159,7 @@ export const products = [
 		src: cloth1,
 		categoryName: "clothes",
 		inStock: true,
+		featured: false,
 	},
 	{
 		_id: uuid(),
@@ -162,6 +172,7 @@ export const products = [
 		src: cloth2,
 		categoryName: "clothes",
 		inStock: true,
+		featured: true,
 	},
 	{
 		_id: uuid(),
@@ -174,6 +185,7 @@ export const products = [
 		src: cloth3,
 		categoryName: "clothes",
 		inStock: true,
+		featured: false,
 	},
 	{
 		_id: uuid(),
@@ -186,6 +198,7 @@ export const products = [
 		src: helmet1,
 		categoryName: "helmets",
 		inStock: true,
+		featured: true,
 	},
 	{
 		_id: uuid(),
@@ -198,6 +211,7 @@ export const products = [
 		src: helmet2,
 		categoryName: "helmets",
 		inStock: true,
+		featured: false,
 	},
 	{
 		_id: uuid(),
@@ -210,6 +224,7 @@ export const products = [
 		src: helmet3,
 		categoryName: "helmets",
 		inStock: true,
+		featured: false,
 	},
 	{
 		_id: uuid(),
@@ -222,6 +237,7 @@ export const products = [
 		src: pad1,
 		categoryName: "pads",
 		inStock: true,
+		featured: true,
 	},
 	{
 		_id: uuid(),
@@ -234,6 +250,7 @@ export const products = [
 		src: pad1,
 		categoryName: "pads",
 		inStock: true,
+		featured: false,
 	},
 	{
 		_id: uuid(),
@@ -246,6 +263,7 @@ export const products = [
 		src: pad1,
 		categoryName: "pads",
 		inStock: true,
+		featured: false,
 	},
 	{
 		_id: uuid(),
@@ -258,5 +276,6 @@ export const products = [
 		src: pad1,
 		categoryName: "pads",
 		inStock: true,
+		featured: false,
 	},
 ];
