@@ -60,7 +60,7 @@
 
 /* -----filter Form-----  */
 
-.filter {
+	.filter {
 	color: var(--COLOR-TXT);
 	display: flex;
 	flex-flow: column nowrap;

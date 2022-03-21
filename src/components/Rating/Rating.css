@@ -1,0 +1,35 @@
+.card__rating {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	display: flex;
+	flex-flow: row nowrap;
+	gap: 0;
+	align-items: center;
+	border: 2px solid var(--COLOR-PRIMARY);
+	width: fit-content;
+	border-radius: 4px;
+	font-weight: bold;
+	padding-left: 2px;
+	cursor: default;
+	background-color: var(--COLOR-PRIMARY);
+	color: var(--COLOR-WHITE);
+	transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.card__rating:hover {
+	background-color: var(--COLOR-PRIMARY);
+	color: var(--COLOR-WHITE);
+}
+
+.card__rating .rating {
+	padding: 0 2px;
+}
+.rating i {
+	font-size: 1.7rem;
+	color: inherit;
+	cursor: default;
+}
+.rating i:hover {
+	color: var(--COLOR-WHITE);
+	transform: scale(1);
+}

@@ -1,8 +1,10 @@
 import "./ProductListing.css";
 import { useDocumentTitle } from "../../customHooks/useDocumentTitle";
-import { Card } from "../../components";
 import { products } from "../../backend/db/products";
 import { Filters } from "../../pages";
+import { Listing } from "../../components";
+
+
 export const ProductListing = () => {
 	useDocumentTitle("Products | MS");
 	return (
@@ -12,7 +14,7 @@ export const ProductListing = () => {
 				<section className="products__section items_container">
 					<h2 className="h3 section__heading">Showing All Products</h2>
 					<ul className="categories__items">
-						<Card products={products} />
+						<Listing products={products} />
 					</ul>
 				</section>
 			</main>
