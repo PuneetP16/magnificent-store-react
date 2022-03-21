@@ -6,7 +6,7 @@ import {
 	helmets,
 	pads,
 	shoes,
-	clothes
+	clothes,
 } from "../../data/image/productImages";
 /**
  * Category Database can be added here.
@@ -42,6 +42,13 @@ export const categories = [
 			"Pads (also called leg guards) are protective equipment used by batters in the sport of cricket",
 		src: pads,
 	},
+	{
+		_id: uuid(),
+		categoryName: "bags",
+		description:
+			"A cricket shoe is usually made up of an artificial leather known as PU or polyurethane. It is extremely soft and flexible to ensure the free movement of the feet.",
+		src: bags,
+	},
 	// {
 	// 	_id: uuid(),
 	// 	categoryName: "clothes",
@@ -56,11 +63,4 @@ export const categories = [
 	// 		"A cricket shoe is usually made up of an artificial leather known as PU or polyurethane. It is extremely soft and flexible to ensure the free movement of the feet.",
 	// 	src: shoes,
 	// },
-	{
-		_id: uuid(),
-		categoryName: "bags",
-		description:
-			"A cricket shoe is usually made up of an artificial leather known as PU or polyurethane. It is extremely soft and flexible to ensure the free movement of the feet.",
-		src: bags,
-	},
 ];

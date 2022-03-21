@@ -1,7 +1,7 @@
-import "./Card.css";
-export const Card = ({ products, featured }) => {
-	console.log(featured);
-	return products.map((prod) => (
+import { Rating } from "../../../components";
+import "./ProductCard.css";
+export const ProductCard = ({ prod, featured }) => {
+	return (
 		<li key={prod._id} className="categories__list">
 			<article
 				className={`card card--vertical_v2 card--shopping ${
@@ -63,7 +63,8 @@ export const Card = ({ products, featured }) => {
 				<div className="card__dismiss dark btn btn--icon btn--close--transparent alert--btn__dismiss btn--circular">
 					<i className="bx bx-x"></i>
 				</div>
+				<Rating />
 			</article>
 		</li>
-	));
+	);
 };

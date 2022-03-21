@@ -5,7 +5,7 @@ export const SignUp = () => {
 	useDocumentTitle("SignUp | MS");
 
 	return (
-		<div className="body--homepage">
+		<div className="body">
 			<h2>SignUp</h2>
 		</div>
 	);

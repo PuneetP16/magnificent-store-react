@@ -2,15 +2,14 @@ import "./App.css";
 import { MockBee } from "./backend/mockdocs/MockBee";
 import { Routes, Route, Link } from "react-router-dom";
 import MockAPI from "./backend/mockdocs/MockMan";
-import { Cart, Home, Login, SignUp, Wishlist } from "./pages";
-import { ProductListing } from "./pages/ProductListing/ProductListing";
+import { Cart, Home, Login, SignUp, Wishlist, ProductListing } from "./pages";
 import { useDocumentTitle } from "./customHooks/useDocumentTitle";
 import { Footer, Header } from "./components";
 
 function App() {
 	useDocumentTitle("MS | HOME");
 	return (
-		<div className="App body--homepage">
+		<div className="App body">
 			<Header />
 			<Routes>
 				<Route path="/" element={<Home />} />

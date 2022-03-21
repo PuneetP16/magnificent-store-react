@@ -1,11 +1,12 @@
 import React from "react";
-import { Card } from "../../components";
+import { Listing } from "../../components";
 import { banner2 } from "../../data/image/productImages";
 import { categories } from "../../backend/db/categories";
 import { products } from "../../backend/db/products";
 import "./Home.css";
 import { useDocumentTitle } from "../../customHooks/useDocumentTitle";
-import { CategoryCard } from "./CategoryCard/CategoryCard";
+import { CategoryListing } from "../../pages";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
 	useDocumentTitle("Home | MS");
@@ -17,19 +18,19 @@ export const Home = () => {
 					<h2 className="h2 section__heading">Product Categories</h2>
 
 					<ul className="categories__items">
-						<CategoryCard categories={categories} />
+						<CategoryListing categories={categories} />
 					</ul>
 				</section>
 				<section className="promotion_container">
-					<a href="/pages/products/products.html">
+					<Link to="productListing">
 						<img src={banner2} alt="bats" className="image--responsive" />
-					</a>
+					</Link>
 				</section>
 				<section className="homepage__section items_container">
 					<h2 className="h2 section__heading"> Featured Products</h2>
 					<ul className="categories__items">
 						{/* <!-- -------Vertical CARDS------- --> */}
-						<Card
+						<Listing
 							products={products.filter((prod) => prod.featured)}
 							featured={true}
 						/>
