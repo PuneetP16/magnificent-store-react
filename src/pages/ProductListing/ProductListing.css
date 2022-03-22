@@ -16,7 +16,6 @@
 .aside {
 	grid-area: aside;
 	margin: 2.6rem;
-	color: var(--COLOR-WHITE);
 	border: none;
 }
 

@@ -1,0 +1,72 @@
+/* .cart_page_wrapper {
+	display: grid;
+	grid-template-columns: 25rem 1fr;
+	grid-template-rows: 1fr;
+	grid-template-areas: "aside main";
+	margin: auto;
+} */
+
+.body--cart {
+	display: grid;
+	min-height: 100vh;
+	grid-template-columns: 1fr;
+	grid-template-rows: 7rem 1fr;
+	grid-template-areas:
+		"header"
+		"main";
+	transition: all 0.3s ease-in;
+	max-width: auto;
+	margin: auto;
+}
+
+.main--cart {
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 2rem 10rem;
+	gap: 3rem;
+}
+
+/*-------------------- main cart ------------------------ */
+
+.main--cart .section__heading {
+	text-align: center;
+	font-weight: 600;
+}
+
+.cart__section {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 3rem;
+}
+
+.cart--empty {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 1rem;
+	align-items: center;
+}
+
+.cart--empty .h6 {
+	font-size: 1rem;
+}
+
+.cart--empty__head {
+	color: var(--COLOR-SECONDARY);
+}
+
+.cart--empty__content {
+	color: var(--COLOR-TXT-PRIMARY);
+}
+
+.cart__wrapper {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	gap: 5rem;
+}
+
+.categories__items_cart {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 2rem;
+}

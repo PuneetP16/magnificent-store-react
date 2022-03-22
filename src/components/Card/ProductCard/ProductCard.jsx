@@ -1,6 +1,6 @@
 import { Rating } from "../../../components";
 import "./ProductCard.css";
-export const ProductCard = ({ prod, featured }) => {
+export const ProductCard = ({ prod, featured, isWishlist, btnTitle }) => {
 	return (
 		<li key={prod._id} className="categories__list">
 			<article
@@ -35,14 +35,18 @@ export const ProductCard = ({ prod, featured }) => {
 				<div className="card__footer">
 					<div className="card__actions">
 						<button className="card__button btn btn--outline--primary">
-							Add to Cart
+							{btnTitle ?? "Add to Cart"}
 						</button>
 						{/* <button className="card__button btn btn--primary">Buy Now</button> */}
 					</div>
 					<ul className="card__icons">
 						<li className="card__list flex-center">
-							<button className="card__link btn btn--outline--primary btn--icon btn--circular like">
-								<i className="bx bx-heart"></i>
+							<button className="card__link btn btn--outline--primary btn--icon like">
+								{isWishlist ? (
+									<i className="bx bxs-heart"></i>
+								) : (
+									<i className="bx bx-heart"></i>
+								)}
 							</button>
 						</li>
 						<li className="card__list share">

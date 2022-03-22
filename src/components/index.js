@@ -10,3 +10,4 @@ export { Listing } from "./Listing/Listing";
 export { Rating } from "./Rating/Rating";
 export { ProductCard } from "./Card/ProductCard/ProductCard";
 export { CategoryCard } from "../components/Card/CategoryCard/CategoryCard";
+export { HorizontalCard } from "./Card/HorizontalCard/HorizontalCard";

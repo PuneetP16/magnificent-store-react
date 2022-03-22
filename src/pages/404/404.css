@@ -7,7 +7,7 @@
 }
 
 .page_not_found__body {
-	color: white;
+	color: var(--COLOR-WHITE);
 	text-align: center;
 }
 

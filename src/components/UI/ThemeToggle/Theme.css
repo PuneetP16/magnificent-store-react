@@ -1,0 +1,21 @@
+html[current_theme="light"] {
+	--COLOR-BG: #e6f0ff;
+	--COLOR-TXT: #000000;
+	--COLOR-TXT-PRIMARY: #2255a4;
+	--COLOR-PRIMARY-THEME: #2255a4;
+	--COLOR-PRIMARY-OPP: white;
+	--COLOR-OFFWHITE: #d3dded;
+	--COLOR-CARD-BG: white;
+	--COLOR-PRIMARY-DARK: #e6f0ff;
+}
+
+html[current_theme="dark"] {
+	--COLOR-BG: #172842;
+	--COLOR-TXT: white;
+	--COLOR-TXT-PRIMARY: #c6ddff;
+	--COLOR-PRIMARY-THEME: white;
+	--COLOR-PRIMARY-OPP: #2255a4;
+	--COLOR-OFFWHITE: #2255a4;
+	--COLOR-CARD-BG: #0c1e3a;
+	--COLOR-PRIMARY-DARK: #163d77;
+}

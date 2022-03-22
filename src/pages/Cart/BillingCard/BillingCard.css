@@ -1,0 +1,48 @@
+/* -------- Billing Section ---------  */
+
+.billing_section {
+	width: 30%;
+	max-width: 70vw;
+}
+
+.bill_wrapper {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: space-between;
+	gap: 8px;
+	background-color: var(--COLOR-WHITE);
+	border: 1px solid var(--COLOR-OFFWHITE);
+	transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+	border-radius: 5px;
+	padding: 3rem 4rem;
+	position: sticky;
+	top: 10rem;
+}
+
+.bill__items,
+.bill__total {
+	list-style-type: none;
+}
+
+.bill__list,
+.bill__total {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+.bill__total {
+	font-weight: 600;
+}
+
+.bill__submit_btn {
+	text-align: center;
+}
+
+.card__quantity .label {
+	color: var(--COLOR-TXT);
+}
+
+aside form .h5 {
+	color: var(--COLOR-PRIMARY);
+}

@@ -31,7 +31,7 @@ export const Login = () => {
 						placeholder="********"
 						name=""
 					/>
-					<section class="form__item form__actions">
+					<section className="form__item form__actions">
 						<InputTypeTwo
 							wrapperClassName="remember_me"
 							type="checkbox"
