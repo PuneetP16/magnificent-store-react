@@ -6,3 +6,4 @@ export { Wishlist } from "./Wishlist/Wishlist";
 export { CategoryListing } from "./Home/CategoryListing/CategoryListing";
 export { Filters } from "./ProductListing/Filters/Filters";
 export { ProductListing } from "./ProductListing/ProductListing";
+export { NotFound } from "./404/404";

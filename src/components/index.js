@@ -1,3 +1,6 @@
+export { InputTypeThree } from "./UI/Input/InputTypeThree";
+export { InputTypeTwo } from "./UI/Input/InputTypeTwo";
+export { InputTypeOne } from "./UI/Input/InputTypeOne";
 export { Header } from "./UI/Header/Header";
 export { Footer } from "./UI/Footer/Footer";
 export { ThemeToggle } from "./UI/ThemeToggle/ThemeToggle";

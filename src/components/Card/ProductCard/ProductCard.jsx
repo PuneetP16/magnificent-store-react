@@ -37,7 +37,7 @@ export const ProductCard = ({ prod, featured }) => {
 						<button className="card__button btn btn--outline--primary">
 							Add to Cart
 						</button>
-						<button className="card__button btn btn--primary">Buy Now</button>
+						{/* <button className="card__button btn btn--primary">Buy Now</button> */}
 					</div>
 					<ul className="card__icons">
 						<li className="card__list flex-center">

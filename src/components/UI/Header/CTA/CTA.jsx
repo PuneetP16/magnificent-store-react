@@ -2,11 +2,14 @@ import "./CTA.css";
 import { ThemeToggle } from "../../../../components";
 import { Link } from "react-router-dom";
 
-export const CTA = () => {
+export const CTA = ({ currentPath }) => {
 	return (
 		<div className="header__nav_btns">
-			<Link className="btn btn--primary" to="/login">
-				Login
+			<Link
+				className="btn btn--primary"
+				to={currentPath === "/login" ? "/signup" : "/login"}
+			>
+				{currentPath === "/login" ? "Sign Up" : "Login"}
 			</Link>
 			<Link
 				className="header__links badge_base btn btn--primary btn--icon btn--circular"

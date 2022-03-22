@@ -3,6 +3,7 @@
 }
 
 .body {
+	background-color: #e6f0ff;
 	display: grid;
 	min-height: 100vh;
 	grid-template-columns: 1fr;
