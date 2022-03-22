@@ -1,16 +1,23 @@
 import "./App.css";
 import { MockBee } from "./backend/mockdocs/MockBee";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation, Navigate } from "react-router-dom";
 import MockAPI from "./backend/mockdocs/MockMan";
-import { Cart, Home, Login, SignUp, Wishlist, ProductListing } from "./pages";
-import { useDocumentTitle } from "./customHooks/useDocumentTitle";
+import {
+	Cart,
+	Home,
+	Login,
+	SignUp,
+	Wishlist,
+	ProductListing,
+	NotFound,
+} from "./pages";
 import { Footer, Header } from "./components";
 
 function App() {
-	useDocumentTitle("MS | HOME");
+	const currentPath = useLocation().pathname;
 	return (
 		<div className="App body">
-			<Header />
+			{currentPath !== "/pagenotfound" && <Header currentPath={currentPath} />}
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/mockbee" element={<MockBee />} />
@@ -20,8 +27,10 @@ function App() {
 				<Route path="/wishlist" element={<Wishlist />} />
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/productlisting" element={<ProductListing />} />
+				<Route path="/pagenotfound" element={<NotFound />} />
+				<Route path="*" element={<Navigate to="/pagenotfound" replace />} />
 			</Routes>
-			<Footer />
+			{currentPath !== "/pagenotfound" && <Footer />}
 		</div>
 	);
 }
