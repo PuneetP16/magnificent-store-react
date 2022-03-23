@@ -33,11 +33,11 @@ export const HorizontalCard = ({ prod, isWishlist, btnTitle, featured }) => {
 
 						<div className="card__quantity_wrapper">
 							<div className="card__quantity form__input_box">
-								<label className="label" for="">
+								<label className="label" htmlFor="">
 									Quantity:
 								</label>
 								<select className="card__quantity_values">
-									<option className="input_box" value="1" selected>
+									<option className="input_box" value="1">
 										1
 									</option>
 									<option className="input_box" value="2">
@@ -69,9 +69,9 @@ export const HorizontalCard = ({ prod, isWishlist, btnTitle, featured }) => {
 									</option>
 								</select>
 							</div>
-							<a className="card_btn--delete btn btn--outline--danger btn--icon btn--round grid-center">
+							<button className="card_btn--delete btn btn--outline--danger btn--icon btn--round grid-center">
 								<i className="bx bxs-trash-alt"></i>
-							</a>
+							</button>
 						</div>
 						<div className="card__footer">
 							<div className="card__actions">

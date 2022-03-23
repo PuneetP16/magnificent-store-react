@@ -1,6 +1,6 @@
 import "./App.css";
 import { MockBee } from "./backend/mockdocs/MockBee";
-import { Routes, Route, Link, useLocation, Navigate } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import MockAPI from "./backend/mockdocs/MockMan";
 import {
 	Cart,
@@ -11,19 +11,29 @@ import {
 	ProductListing,
 	NotFound,
 } from "./pages";
-import { Footer, Header } from "./components";
+import { Footer, Header, Loader } from "./components";
+import { useAuth } from "./contexts";
 
 function App() {
 	const currentPath = useLocation().pathname;
+	const { isAuth } = useAuth();
+
 	return (
 		<div className="App body">
-			{currentPath !== "/pagenotfound" && <Header currentPath={currentPath} />}
+			{currentPath !== "/pagenotfound" && <Header />}
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/mockbee" element={<MockBee />} />
 				<Route path="/mockman" element={<MockAPI />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/signup" element={<SignUp />} />
+				<Route
+					path="/login"
+					element={isAuth ? <Navigate to="/" replace /> : <Login />}
+				/>
+				<Route
+					path="/signup"
+					element={isAuth ? <Navigate to="/" replace /> : <SignUp />}
+				/>
+				<Route path="/loader" element={<Loader />} />
 				<Route path="/wishlist" element={<Wishlist />} />
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/productlisting" element={<ProductListing />} />

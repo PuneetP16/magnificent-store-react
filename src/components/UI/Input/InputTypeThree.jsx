@@ -10,6 +10,8 @@ export const InputTypeThree = (props) => {
 		placeholder,
 		name,
 		iconClassName,
+		onChange,
+		toggleVisibility,
 	} = props;
 	return (
 		<div className={wrapperClassName}>
@@ -20,11 +22,13 @@ export const InputTypeThree = (props) => {
 				type={type}
 				className={className}
 				placeholder={placeholder}
+				name={name}
+				onChange={onChange}
 				required
 			/>
-			<button className="btn--icon">
+			<div onClick={toggleVisibility} className="btn--icon">
 				<i className={iconClassName} />
-			</button>
+			</div>
 		</div>
 	);
 };

@@ -1,3 +1,4 @@
+export { Loader } from "./UI/Loader/Loader";
 export { InputTypeThree } from "./UI/Input/InputTypeThree";
 export { InputTypeTwo } from "./UI/Input/InputTypeTwo";
 export { InputTypeOne } from "./UI/Input/InputTypeOne";

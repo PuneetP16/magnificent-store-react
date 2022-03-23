@@ -1,4 +1,3 @@
-import React from "react";
 import { Listing } from "../../components";
 import { banner2 } from "../../data/image/productImages";
 import { categories } from "../../backend/db/categories";

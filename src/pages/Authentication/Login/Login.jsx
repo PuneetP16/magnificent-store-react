@@ -1,14 +1,53 @@
-import { Link } from "react-router-dom";
-import { InputTypeOne, InputTypeTwo } from "../../../components";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { InputTypeOne, InputTypeTwo, Loader } from "../../../components";
+import { useUser, useAuth } from "../../../contexts";
 import { useDocumentTitle } from "../../../customHooks/useDocumentTitle";
+import { signIn } from "../../../services";
 import "./Login.css";
 
 export const Login = () => {
 	useDocumentTitle("Login | MS");
+	const navigate = useNavigate();
+	const { loginData, userData, dispatch, initialFormState } = useUser();
+	const { isAuth, toggleAuth } = useAuth();
+	const [rememberMe, setRememberMe] = useState(false);
+	const [loader, setLoader] = useState(false);
+	const toggleRememberMe = () => {
+		setRememberMe((rememberMe) => !rememberMe);
+	};
+
+	const toggleLoader = () => {
+		setLoader((loaders) => !loaders);
+	};
+
+	const onChangeHandler = (e) => {
+		dispatch({
+			type: "HANDLE_LOGIN_INPUT",
+			field: e.target.name,
+			payload: e.target.value,
+		});
+	};
+
+	const onSubmitHandler = (e) => {
+		e.preventDefault();
+		signIn({
+			loginData,
+			userData,
+			dispatch,
+			initialFormState,
+			toggleAuth,
+			navigate,
+			rememberMe,
+			toggleLoader,
+		});
+	};
+
 	return (
 		<main>
 			<div className="center">
-				<form action="post" className="form flex" method="get">
+				{loader && <Loader />}
+				<form onSubmit={onSubmitHandler} className="form flex" method="get">
 					<h2 className="h3">Login</h2>
 					<InputTypeOne
 						wrapperClassName="form__item form__email form__input_box"
@@ -18,7 +57,9 @@ export const Login = () => {
 						type="email"
 						className="input_box"
 						placeholder="yours@mail.com"
-						name=""
+						name="email"
+						onChange={onChangeHandler}
+						value={loginData["email"]}
 					/>
 
 					<InputTypeOne
@@ -29,7 +70,9 @@ export const Login = () => {
 						type="password"
 						className="input_box"
 						placeholder="********"
-						name=""
+						name="password"
+						onChange={onChangeHandler}
+						value={loginData["password"]}
 					/>
 					<section className="form__item form__actions">
 						<InputTypeTwo
@@ -42,6 +85,8 @@ export const Login = () => {
 							htmlFor="remember_me"
 							labelClassName="checkbox"
 							labelText="Remember me"
+							onClick={toggleRememberMe}
+							value={rememberMe}
 							required={false}
 						/>
 
