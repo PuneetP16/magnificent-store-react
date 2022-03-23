@@ -54,9 +54,9 @@ export const SignUp = () => {
 						className="input_box"
 						placeholder="********"
 						name=""
-						iconClassName={`bx ${" "  ? "bxs-hide":"bxs-show"}`}
+						iconClassName={`bx ${" " ? "bxs-hide" : "bxs-show"}`}
 					/>
-					<section class="form__item form__actions">
+					<section className="form__item form__actions">
 						<InputTypeTwo
 							wrapperClassName="form__item form__actions"
 							type="checkbox"

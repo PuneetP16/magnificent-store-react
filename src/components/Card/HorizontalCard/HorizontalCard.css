@@ -20,7 +20,11 @@
 	font-size: 3rem;
 }
 
+.card--horizontal_v2 .card--cart .card--body {
+	padding: 0 2rem;
+}
 
-li .card--vertical_v2  {
-	min-height: 44rem;
+.card--cart .card__body {
+	min-width: 25rem;
+	padding: 0 2.5rem;
 }

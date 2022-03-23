@@ -1,0 +1,44 @@
+/*-------------------- body wishlist ------------------------ */
+
+
+.main--wishlist {
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 2rem 10rem;
+	gap: 3rem;
+}
+
+/*-------------------- main wishlist ------------------------ */
+
+.main--wishlist .section__heading {
+	text-align: center;
+}
+
+.wishlist__section {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 3rem;
+}
+
+.wishlist_empty {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 1rem;
+	align-items: center;
+}
+
+.wishlist_empty .h6 {
+	font-size: 1rem;
+}
+
+.wishlist_empty__head {
+	color: var(--COLOR-SECONDARY);
+}
+
+.wishlist_empty__content {
+	color: var(--COLOR-PRIMARY);
+}
+
+form .h5 {
+	color: var(--COLOR-TXT-PRIMARY);
+}

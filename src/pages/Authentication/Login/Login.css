@@ -1,5 +1,7 @@
 /* login page */
-
+:root {
+	--COLOR-INPUT-BORDER: #c5c5c5;
+}
 .center {
 	height: 100%;
 	display: flex;
@@ -26,8 +28,7 @@ a {
 }
 
 .form {
-	background-color: #e6f0ff;
-	/* background-color: var(--COLOR-PRIMARY-DARK); */
+	background-color: var(--COLOR-PRIMARY-DARK);
 	color: var(--COLOR-TXT);
 	display: flex;
 	flex-flow: column wrap;
@@ -61,7 +62,7 @@ a {
 	width: 100%;
 	border-radius: 4px;
 	padding: 5px 1rem;
-	border: 1px solid #c5c5c5;
+	border: 1px solid var(--COLOR-INPUT-BORDER);
 	background-color: var(--COLOR-BG);
 }
 
@@ -73,7 +74,7 @@ a {
 	border: 1px solid var(--COLOR-PRIMARY);
 }
 .label {
-	color: var(--BLACK);
+	color: var(--COLOR-TXT);
 	font-weight: 500;
 }
 
@@ -132,7 +133,7 @@ a {
 	background: transparent;
 	border: none;
 	box-shadow: none;
-	color: black;
+	color: var(--COLOR-TXT);
 	padding: 4px;
 	text-decoration: none;
 }
@@ -146,5 +147,5 @@ a {
 	right: 4px;
 	top: 42px;
 	border: none;
-	color:var(--COLOR-PRIMARY)
+	color: var(--COLOR-PRIMARY);
 }

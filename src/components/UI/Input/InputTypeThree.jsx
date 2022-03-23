@@ -22,8 +22,8 @@ export const InputTypeThree = (props) => {
 				placeholder={placeholder}
 				required
 			/>
-			<button class="btn--icon">
-				<i class={iconClassName} />
+			<button className="btn--icon">
+				<i className={iconClassName} />
 			</button>
 		</div>
 	);

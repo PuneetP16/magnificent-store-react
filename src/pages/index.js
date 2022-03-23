@@ -7,3 +7,4 @@ export { CategoryListing } from "./Home/CategoryListing/CategoryListing";
 export { Filters } from "./ProductListing/Filters/Filters";
 export { ProductListing } from "./ProductListing/ProductListing";
 export { NotFound } from "./404/404";
+export { BillingCard } from "./Cart/BillingCard/BillingCard";
