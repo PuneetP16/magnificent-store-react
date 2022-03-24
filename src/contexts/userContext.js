@@ -6,9 +6,7 @@ const UserContext = createContext();
 export const useUser = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-	const lastLoginDetails = JSON.parse(
-		sessionStorage.getItem("initialLoginFill")
-	);
+	const lastLoginDetails = JSON.parse(localStorage.getItem("initialLoginFill"));
 	const initialFormState = lastLoginDetails ?? {
 		loginData: {
 			email: "adarshbalika@gmail.com",

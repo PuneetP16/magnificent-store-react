@@ -11,7 +11,7 @@ export const CTA = () => {
 
 	const onClickHandler = () => {
 		if (isAuth) {
-			sessionStorage.removeItem("storeToken");
+			localStorage.removeItem("storeToken");
 			toggleAuth();
 		}
 	};

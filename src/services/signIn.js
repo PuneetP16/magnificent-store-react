@@ -15,15 +15,15 @@ export const signIn = async ({
 
 		const res = await axios.post("/api/auth/login", loginData);
 		if (res.status === 200) {
-			sessionStorage.setItem("storeToken", res.data.encodedToken);
+			localStorage.setItem("storeToken", res.data.encodedToken);
 			toggleAuth();
 			const currentInitial = { loginData: { ...loginData } };
 			rememberMe
-				? sessionStorage.setItem(
+				? localStorage.setItem(
 						"initialLoginFill",
 						JSON.stringify(currentInitial)
 				  )
-				: sessionStorage.setItem(
+				: localStorage.setItem(
 						"initialLoginFill",
 						JSON.stringify(initialFormState)
 				  );
