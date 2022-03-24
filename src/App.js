@@ -40,7 +40,7 @@ function App() {
 				<Route path="/pagenotfound" element={<NotFound />} />
 				<Route path="*" element={<Navigate to="/pagenotfound" replace />} />
 			</Routes>
-			{currentPath !== "/pagenotfound" && <Footer />}
+			{pathname !== "/pagenotfound" && <Footer />}
 		</div>
 	);
 }
