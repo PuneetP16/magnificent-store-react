@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 export const CTA = () => {
 	const { isAuth, toggleAuth } = useAuth();
 
-	const currentPath = useLocation().pathname;
+	const { pathname } = useLocation();
 
 	const onClickHandler = () => {
 		if (isAuth) {
@@ -20,9 +20,9 @@ export const CTA = () => {
 			<Link
 				onClick={onClickHandler}
 				className="btn btn--primary"
-				to={isAuth ? "/" : currentPath === "/login" ? "/signup" : "/login"}
+				to={isAuth ? "/" : pathname === "/login" ? "/signup" : "/login"}
 			>
-				{isAuth ? "Logout" : currentPath === "/login" ? "Sign Up" : "Login"}
+				{isAuth ? "Logout" : pathname === "/login" ? "Sign Up" : "Login"}
 			</Link>
 			<Link
 				className="header__links badge_base btn btn--primary btn--icon btn--circular"

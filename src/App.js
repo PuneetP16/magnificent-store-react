@@ -2,6 +2,8 @@ import "./App.css";
 import { MockBee } from "./backend/mockdocs/MockBee";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import MockAPI from "./backend/mockdocs/MockMan";
+import { Footer, Header, Loader } from "./components";
+import { useAuth } from "./contexts";
 import {
 	Cart,
 	Home,
@@ -11,16 +13,14 @@ import {
 	ProductListing,
 	NotFound,
 } from "./pages";
-import { Footer, Header, Loader } from "./components";
-import { useAuth } from "./contexts";
 
 function App() {
-	const currentPath = useLocation().pathname;
+	const { pathname } = useLocation();
 	const { isAuth } = useAuth();
 
 	return (
 		<div className="App body">
-			{currentPath !== "/pagenotfound" && <Header />}
+			{pathname !== "/pagenotfound" && <Header />}
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/mockbee" element={<MockBee />} />
