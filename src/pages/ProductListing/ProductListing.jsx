@@ -1,5 +1,5 @@
 import "./ProductListing.css";
-import { useDocumentTitle } from "../../customHooks/useDocumentTitle";
+import { useDocumentTitle } from "../../customHooks";
 import { products } from "../../backend/db/products";
 import { Filters } from "../../pages";
 import { Listing } from "../../components";

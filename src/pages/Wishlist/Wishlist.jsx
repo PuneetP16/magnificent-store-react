@@ -1,6 +1,6 @@
 import { products } from "../../backend/db/products";
 import { Listing } from "../../components";
-import { useDocumentTitle } from "../../customHooks/useDocumentTitle";
+import { useDocumentTitle } from "../../customHooks";
 import "./Wishlist.css";
 
 export const Wishlist = () => {

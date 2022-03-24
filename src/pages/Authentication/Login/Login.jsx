@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { InputTypeOne, InputTypeTwo, Loader } from "../../../components";
 import { useUser, useAuth } from "../../../contexts";
-import { useDocumentTitle } from "../../../customHooks/useDocumentTitle";
+import { useDocumentTitle } from "../../../customHooks";
 import { signIn } from "../../../services";
 import "./Login.css";
 

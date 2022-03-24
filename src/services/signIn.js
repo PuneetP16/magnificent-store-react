@@ -14,11 +14,9 @@ export const signIn = async ({
 		toggleLoader();
 
 		const res = await axios.post("/api/auth/login", loginData);
-
 		if (res.status === 200) {
 			sessionStorage.setItem("storeToken", res.data.encodedToken);
 			toggleAuth();
-			navigate("/");
 			const currentInitial = { loginData: { ...loginData } };
 			rememberMe
 				? sessionStorage.setItem(
@@ -39,10 +37,10 @@ export const signIn = async ({
 					...loginData,
 					userData: {
 						...userData,
-						email: res?.data.foundUser.email,
-						firstName: res?.data.foundUser.firstName,
-						lastName: res?.data.foundUser.lastName,
-						encodedToken: res?.data.encodedToken,
+						email: res.data.foundUser.email,
+						firstName: res.data.foundUser.firstName,
+						lastName: res.data.foundUser.lastName,
+						encodedToken: res.data.encodedToken,
 					},
 				},
 			});

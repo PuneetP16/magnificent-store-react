@@ -6,7 +6,7 @@ import {
 	InputTypeTwo,
 } from "../../../components";
 import { useUser } from "../../../contexts";
-import { useDocumentTitle } from "../../../customHooks/useDocumentTitle";
+import { useDocumentTitle } from "../../../customHooks";
 import { signUp } from "../../../services";
 import "./SignUp.css";
 
