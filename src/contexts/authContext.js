@@ -13,6 +13,6 @@ export const AuthProvider = ({ children }) => {
 		setIsAuth((auth) => !auth);
 	};
 
-	const value = { isAuth, toggleAuth };
+	const value = { isAuth, toggleAuth, token };
 	return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

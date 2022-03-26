@@ -1,8 +1,40 @@
 import { Rating } from "../../../components";
 import "./HorizontalCard.css";
+import { useAxios } from "../../../customHooks";
+import { useCart } from "../../../contexts";
+
 export const HorizontalCard = ({ prod, isWishlist, btnTitle, featured }) => {
+	const { axiosRequest } = useAxios();
+	const { cart, totalQty, cartDispatch } = useCart();
+
+	const currentProductURL = `/api/user/cart/${prod._id}`;
+	const removeFromCart = async () => {
+		const { output } = await axiosRequest({
+			method: "DELETE",
+			url: currentProductURL,
+			resKey: "cart",
+			data: { product: prod },
+		});
+		cartDispatch({ type: "REMOVE", payload: output, product: prod });
+		//Client Side Update
+		// cartDispatch({ type: "REMOVE", payload: prod });
+	};
+
+	const updateQtyInCart = async (e) => {
+		const itemQty = Number(e.target.value);
+		const action = { type: "update", qty: itemQty };
+		const { output } = await axiosRequest({
+			method: "POST",
+			url: currentProductURL,
+			resKey: "cart",
+			data: { action: action },
+		});
+		console.log("output here", output);
+		cartDispatch({ type: "UPDATE", payload: output, product: prod });
+	};
+
 	return (
-		<li key={prod._id} className="categories__list">
+		<li className="categories__list">
 			<article
 				className={`card card--shopping card--cart card--horizontal_v2 ${
 					featured ? "card--badge" : ""
@@ -36,47 +68,34 @@ export const HorizontalCard = ({ prod, isWishlist, btnTitle, featured }) => {
 								<label className="label" htmlFor="">
 									Quantity:
 								</label>
-								<select className="card__quantity_values">
-									<option className="input_box" value="1">
-										1
-									</option>
-									<option className="input_box" value="2">
-										2
-									</option>
-									<option className="input_box" value="3">
-										3
-									</option>
-									<option className="input_box" value="4">
-										4
-									</option>
-									<option className="input_box" value="5">
-										5
-									</option>
-									<option className="input_box" value="6">
-										6
-									</option>
-									<option className="input_box" value="7">
-										7
-									</option>
-									<option className="input_box" value="8">
-										8
-									</option>
-									<option className="input_box" value="9">
-										9
-									</option>
-									<option className="input_box" value="9">
-										10
-									</option>
+								<select
+									onChange={updateQtyInCart}
+									className="card__quantity_values"
+									value={prod.qty}
+								>
+									{[1, 2, 3, 4, 5].map((val, i) => {
+										return (
+											<option key={i} className="input_box">
+												{val}
+											</option>
+										);
+									})}
 								</select>
 							</div>
-							<button className="card_btn--delete btn btn--outline--danger btn--icon btn--round grid-center">
+							<button
+								onClick={removeFromCart}
+								className="card_btn--delete btn btn--outline--danger btn--icon btn--round grid-center"
+							>
 								<i className="bx bxs-trash-alt"></i>
 							</button>
 						</div>
 						<div className="card__footer">
 							<div className="card__actions">
-								<button className="card__button btn btn--outline--primary">
-									{btnTitle ?? "Add to Cart"}
+								<button
+									className="card__button btn btn--outline--primary"
+									// onClick={onClickHandler}
+								>
+									{btnTitle}
 								</button>
 							</div>
 						</div>

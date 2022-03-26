@@ -46,3 +46,8 @@
 aside form .h5 {
 	color: var(--COLOR-PRIMARY);
 }
+
+
+.cart__wrapper .aside {
+	margin:0;
+}

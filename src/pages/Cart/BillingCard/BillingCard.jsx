@@ -1,6 +1,10 @@
+import { useCart } from "../../../contexts";
 import "./BillingCard.css";
 
 export const BillingCard = () => {
+	const { cart, totalQty, productPrice, totalPrice } = useCart();
+
+	const { original, discount } = totalPrice;
 	return (
 		<aside className="aside aside--products billing_section">
 			<form action="post" className="bill_wrapper">
@@ -10,16 +14,16 @@ export const BillingCard = () => {
 					<ul className="bill__items">
 						<li className="bill__list">
 							<div className="bill__item">
-								Price (<span>5</span> items)
+								Price (<span>{totalQty}</span> items)
 							</div>
 							<div className="bill__item">
-								₹<span id="initial-total">10999</span>
+								₹<span id="initial-total">{original}</span>
 							</div>
 						</li>
 						<li className="bill__list">
 							<div className="bill__item">Discount</div>
 							<div className="bill__item">
-								-₹<span id="discounted-amount">3999</span>
+								-₹<span id="discounted-amount">{discount}</span>
 							</div>
 						</li>
 						<li className="bill__list">
@@ -34,12 +38,12 @@ export const BillingCard = () => {
 				<ul className="bill__total">
 					<li className="bill__item">TOTAL AMOUNT</li>
 					<li className="bill__item">
-						₹<span id="final-total">7499</span>
+						₹<span id="final-total">{original - discount + 499}</span>
 					</li>
 				</ul>
 				<hr />
 				<div className="bill__description">
-					You will save ₹1999 on this order
+					You will save ₹{discount} on this order
 				</div>
 				<a className="bill__submit_btn btn btn--primary" href="#">
 					PLACE ORDER

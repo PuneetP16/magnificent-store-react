@@ -1,7 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { InputTypeOne, InputTypeTwo, Loader } from "../../../components";
-import { useUser, useAuth } from "../../../contexts";
+import {
+	InputTypeOne,
+	InputTypeThree,
+	InputTypeTwo,
+	Loader,
+} from "../../../components";
+import { useUser, useAuth, useLoader } from "../../../contexts";
 import { useDocumentTitle } from "../../../customHooks";
 import { signIn } from "../../../services";
 import "./Login.css";
@@ -10,15 +15,15 @@ export const Login = () => {
 	useDocumentTitle("Login | MS");
 	const navigate = useNavigate();
 	const { loginData, userData, dispatch, initialFormState } = useUser();
-	const { isAuth, toggleAuth } = useAuth();
+	const { toggleAuth } = useAuth();
 	const [rememberMe, setRememberMe] = useState(false);
-	const [loader, setLoader] = useState(false);
+	const [isVisible, setIsVisible] = useState(false);
+	const { loader, toggleLoader } = useLoader();
 	const toggleRememberMe = () => {
 		setRememberMe((rememberMe) => !rememberMe);
 	};
-
-	const toggleLoader = () => {
-		setLoader((loaders) => !loaders);
+	const toggleVisibility = () => {
+		setIsVisible((visible) => !visible);
 	};
 
 	const onChangeHandler = (e) => {
@@ -62,17 +67,19 @@ export const Login = () => {
 						value={loginData["email"]}
 					/>
 
-					<InputTypeOne
+					<InputTypeThree
 						wrapperClassName="form__item form__password form__input_box"
 						htmlFor="password"
 						labelClassName="label"
 						labelText="Password"
-						type="password"
 						className="input_box"
 						placeholder="********"
 						name="password"
 						onChange={onChangeHandler}
 						value={loginData["password"]}
+						type={isVisible ? "text" : "password"}
+						iconClassName={`bx ${isVisible ? "bxs-hide" : "bxs-show"}`}
+						toggleVisibility={toggleVisibility}
 					/>
 					<section className="form__item form__actions">
 						<InputTypeTwo

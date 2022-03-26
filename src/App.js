@@ -3,7 +3,7 @@ import { MockBee } from "./backend/mockdocs/MockBee";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import MockAPI from "./backend/mockdocs/MockMan";
 import { Footer, Header, Loader } from "./components";
-import { useAuth } from "./contexts";
+import { useAuth, useLoader } from "./contexts";
 import {
 	Cart,
 	Home,
@@ -17,10 +17,12 @@ import {
 function App() {
 	const { pathname } = useLocation();
 	const { isAuth } = useAuth();
+	const { loader, toggleLoader } = useLoader();
 
 	return (
 		<div className="App body">
 			{pathname !== "/pagenotfound" && <Header />}
+
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/mockbee" element={<MockBee />} />
@@ -40,7 +42,9 @@ function App() {
 				<Route path="/pagenotfound" element={<NotFound />} />
 				<Route path="*" element={<Navigate to="/pagenotfound" replace />} />
 			</Routes>
-			{pathname !== "/pagenotfound" && <Footer />}
+			{(pathname !== "/pagenotfound" || (pathname !== "/login" && loader)) && (
+				<Footer />
+			)}
 		</div>
 	);
 }
