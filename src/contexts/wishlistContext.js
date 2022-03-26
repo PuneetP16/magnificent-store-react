@@ -4,9 +4,7 @@ const WishlistContext = createContext();
 
 export const useWishlist = () => useContext(WishlistContext);
 
-const wishlistReducer = ({wishlist, totalQty}, {payload}) = {
-    
-}
+const wishlistReducer = ({ wishlist, totalQty }, { payload }) => {};
 
 export const WishlistProvider = ({ children }) => {
 	// const { isAuth } = useAuth();
@@ -16,13 +14,20 @@ export const WishlistProvider = ({ children }) => {
 		totalQty: 0,
 	};
 
-	const [{ wishlist, totalQty}, wishlistDispatch] = useReducer(
+	const [{ wishlist, totalQty }, wishlistDispatch] = useReducer(
 		wishlistReducer,
 		initialWishlistState
 	);
 
 	const value = {
-         wishlist, totalQty, wishlistDispatch, initialWishlistState
+		wishlist,
+		totalQty,
+		wishlistDispatch,
+		initialWishlistState,
 	};
-	return <WishlistContext.Provider value={value}>{children}</WishlistContext.Provider>;
+	return (
+		<WishlistContext.Provider value={value}>
+			{children}
+		</WishlistContext.Provider>
+	);
 };
