@@ -1,11 +1,12 @@
 import "./CTA.css";
 import { ThemeToggle } from "../../../../components";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../../../contexts";
+import { useAuth, useCart } from "../../../../contexts";
 import { useLocation } from "react-router-dom";
 
 export const CTA = () => {
 	const { isAuth, toggleAuth } = useAuth();
+	const { totalQty: cartTotalQty } = useCart();
 
 	const { pathname } = useLocation();
 
@@ -36,7 +37,9 @@ export const CTA = () => {
 				to="/cart"
 			>
 				<i className="bx bxs-cart"></i>
-				<span className="badge color--primary width_height--sm">5+</span>
+				<span className="badge color--primary width_height--sm">
+					{cartTotalQty}
+				</span>
 			</Link>
 			<ThemeToggle />
 		</div>

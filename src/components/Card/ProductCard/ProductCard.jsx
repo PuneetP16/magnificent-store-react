@@ -1,5 +1,7 @@
 import { Rating } from "../../../components";
+import { CardActionBtn } from "../CardActionBtn";
 import "./ProductCard.css";
+
 export const ProductCard = ({ prod, featured, isWishlist, btnTitle }) => {
 	return (
 		<li key={prod._id} className="categories__list">
@@ -34,9 +36,7 @@ export const ProductCard = ({ prod, featured, isWishlist, btnTitle }) => {
 				</div>
 				<div className="card__footer">
 					<div className="card__actions">
-						<button className="card__button btn btn--outline--primary">
-							{btnTitle ?? "Add to Cart"}
-						</button>
+						<CardActionBtn btnTitle={btnTitle} prod={prod} />
 						{/* <button className="card__button btn btn--primary">Buy Now</button> */}
 					</div>
 					<ul className="card__icons">

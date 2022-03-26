@@ -70,3 +70,7 @@
 	flex-flow: column nowrap;
 	gap: 2rem;
 }
+
+.underline {
+	text-decoration: underline;
+}

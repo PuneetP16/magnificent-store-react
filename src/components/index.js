@@ -1,3 +1,5 @@
+export { CardActionBtn } from "./Card/CardActionBtn";
+
 export { Loader } from "./UI/Loader/Loader";
 export { InputTypeThree } from "./UI/Input/InputTypeThree";
 export { InputTypeTwo } from "./UI/Input/InputTypeTwo";

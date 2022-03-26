@@ -119,10 +119,10 @@ export const updateCartItemHandler = function (schema, request) {
     }
     const userCart = schema.users.findBy({ _id: userId }).cart;
     const { action } = JSON.parse(request.requestBody);
-    if (action.type === "increment") {
+    if (action.type === "update") {
       userCart.forEach((product) => {
         if (product._id === productId) {
-          product.qty += 1;
+          product.qty = action.qty;
           product.updatedAt = formatDate();
         }
       });
