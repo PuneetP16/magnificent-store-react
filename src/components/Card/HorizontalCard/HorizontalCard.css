@@ -18,6 +18,7 @@
 }
 .card .like i {
 	font-size: 3rem;
+	color: var(--COLOR-PRIMARY-THEME);
 }
 
 .card--horizontal_v2 .card--cart .card--body {

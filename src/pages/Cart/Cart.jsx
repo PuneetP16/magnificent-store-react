@@ -1,16 +1,19 @@
 import { useDocumentTitle } from "../../customHooks";
 import "./Cart.css";
-import { HorizontalCard } from "../../components";
+import { HorizontalCard, Loader } from "../../components";
 import { BillingCard } from "../../pages";
-import { useCart } from "../../contexts";
+import { useCart, useLoader } from "../../contexts";
 import { Link } from "react-router-dom";
 
 export const Cart = () => {
 	useDocumentTitle("Cart | MS");
 	const { cart, totalQty, cartDispatch } = useCart();
+	const { loader } = useLoader();
 
 	return (
 		<div className="cart_page_wrapperd">
+			{loader && <Loader />}
+
 			<main className="main--cart">
 				<section className="cart__section">
 					<h2 className="h3 section__heading">

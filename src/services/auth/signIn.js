@@ -16,6 +16,7 @@ export const signIn = async ({
 		if (res.status === 200) {
 			localStorage.setItem("storeToken", res.data.encodedToken);
 			toggleAuth();
+			console.log(res);
 			const currentUserData = {
 				loginData: { ...loginData },
 				userData: {

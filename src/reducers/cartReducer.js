@@ -4,7 +4,10 @@ export const cartReducer = (
 ) => {
 	switch (type) {
 		case "ADD":
+			
+
 			cart = [...payload];
+			
 			// Client side update
 			// cart = [...cart, payload];
 			totalQty = totalQty + 1;
@@ -22,7 +25,7 @@ export const cartReducer = (
 			cart = [...payload];
 			// Client side update
 			// cart = cart.filter((p) => p._id !== payload._id);
-			totalQty = totalQty - 1;
+			totalQty -= product.qty;
 
 			totalPrice.original -= product.price.original * product.qty;
 			totalPrice.discount -=
@@ -33,6 +36,7 @@ export const cartReducer = (
 			return { cart, totalQty, totalPrice };
 
 		case "UPDATE":
+			console.log("update");
 			cart = [...payload];
 			// Client side update
 			// cart = cart.filter((p) => p._id !== payload._id);
@@ -40,15 +44,17 @@ export const cartReducer = (
 
 			// Price calculation of quantity before update
 			const prevOriginal = product.qty * product.price.original;
-			const prevDiscount = (prevOriginal * product.price.percentageDiscount) / 100;
+			const prevDiscount =
+				(prevOriginal * product.price.percentageDiscount) / 100;
 
 			// Price calculation of quantity after update
 			const currentOriginal = prod.qty * prod.price.original;
-			const currentDiscount = (currentOriginal * product.price.percentageDiscount) / 100;
+			const currentDiscount =
+				(currentOriginal * product.price.percentageDiscount) / 100;
 
 			totalPrice.original += currentOriginal - prevOriginal;
 			totalPrice.discount += currentDiscount - prevDiscount;
-
+			totalQty += prod.qty - product.qty;
 			return { cart, totalQty, totalPrice };
 
 		default:

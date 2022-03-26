@@ -41,7 +41,6 @@ export const Home = () => {
 	return (
 		<div>
 			<main className="main--homepage">
-				{loader && <Loader />}
 				<section className="homepage__section categories">
 					<h2 className="h2 section__heading">Product Categories</h2>
 

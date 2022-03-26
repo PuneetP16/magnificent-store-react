@@ -1,39 +1,52 @@
-import { products } from "../../backend/db/products";
+import { Link } from "react-router-dom";
 import { Listing } from "../../components";
-import { useDocumentTitle } from "../../customHooks";
+import { useWishlist } from "../../contexts";
+import { useAxios, useDocumentTitle } from "../../customHooks";
 import "./Wishlist.css";
 
 export const Wishlist = () => {
 	useDocumentTitle("Wishlist | MS");
+	const { axiosRequest } = useAxios();
+	const { wishlist, totalQty, wishlistDispatch, getUpdatedWishlist } =
+		useWishlist();
+
+	// useEffect(() => {
+	// 	(async () => {
+	// 		getUpdatedWishlist(axiosRequest);
+	// 	})();
+	// }, []);
 
 	return (
 		<div className="wishlist_page_wrapper">
 			<main className="main main--wishlist">
 				<section className="wishlist__section">
-					<h2 className="h2 section__heading">My WishList</h2>
+					<h2 className="h2 section__heading">My WishList ({totalQty})</h2>
 				</section>
 				<section className="wishlist__section items_container">
 					{/* <!-- loadS if wishlist empty  --> */}
-					<div className="wishlist_empty h3">
-						<div className="h6">info: loads only when wishllist empty</div>
-						<div className="wishlist_empty__head">WishList Empty!</div>
-						<div className="wishlist_empty__content">
-							Save your favourite products to Wishlist
+					{wishlist.length === 0 && (
+						<div className="wishlist_empty h3">
+							<div className="wishlist_empty__head">WishList Empty!</div>
+							<div className="wishlist_empty__content">
+								Save your favourite products to Wishlist
+							</div>
+							<Link className="link underline" to="/productlisting">
+								➡️ From HERE..
+							</Link>
 						</div>
-						<a className="link" href="/pages/products/products.html">
-							{" "}
-							From HERE..{" "}
-						</a>
-					</div>
+					)}
+
 					{/* <!-- loadS if wishlist empty-- END  --> */}
 
 					{/* <!-- --- CARDS SECTION---- --> */}
 					<ul className="categories__items">
-						<Listing
-							products={products.filter((products) => products.featured)}
-							isWishlist={true}
-							btnTitle="Add to Cart"
-						/>
+						{wishlist.length !== 0 && (
+							<Listing
+								products={wishlist}
+								isWishlist={true}
+								btnTitle="Add to Cart"
+							/>
+						)}
 					</ul>
 				</section>
 			</main>
