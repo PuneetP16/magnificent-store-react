@@ -2,12 +2,9 @@ export const cartReducer = (
 	{ cart, totalQty, totalPrice },
 	{ type, payload, product }
 ) => {
+	cart = [...payload];
 	switch (type) {
 		case "ADD":
-			
-
-			cart = [...payload];
-			
 			// Client side update
 			// cart = [...cart, payload];
 			totalQty = totalQty + 1;
@@ -22,7 +19,6 @@ export const cartReducer = (
 			};
 
 		case "REMOVE":
-			cart = [...payload];
 			// Client side update
 			// cart = cart.filter((p) => p._id !== payload._id);
 			totalQty -= product.qty;
@@ -36,8 +32,6 @@ export const cartReducer = (
 			return { cart, totalQty, totalPrice };
 
 		case "UPDATE":
-			console.log("update");
-			cart = [...payload];
 			// Client side update
 			// cart = cart.filter((p) => p._id !== payload._id);
 			const prod = payload.find((p) => p._id === product._id);

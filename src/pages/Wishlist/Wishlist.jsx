@@ -6,9 +6,7 @@ import "./Wishlist.css";
 
 export const Wishlist = () => {
 	useDocumentTitle("Wishlist | MS");
-	const { axiosRequest } = useAxios();
-	const { wishlist, totalQty, wishlistDispatch, getUpdatedWishlist } =
-		useWishlist();
+	const { wishlist, totalQty } = useWishlist();
 
 	// useEffect(() => {
 	// 	(async () => {
