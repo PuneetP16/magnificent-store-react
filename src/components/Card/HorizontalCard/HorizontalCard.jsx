@@ -2,14 +2,20 @@ import { Rating } from "../../../components";
 import "./HorizontalCard.css";
 import { useAxios } from "../../../customHooks";
 import { useCart, useWishlist } from "../../../contexts";
+import { useState } from "react";
 
-export const HorizontalCard = ({ prod, isWishlist, btnTitle, featured }) => {
+export const HorizontalCard = ({ prod, btnTitle, featured }) => {
+	const [disable, setDisable] = useState(false);
 	const { axiosRequest } = useAxios();
-	const { removeFromCart, updateQtyInCart } = useCart();
-	const { addToWishlist } = useWishlist();
+	const { cart, removeFromCart, updateQtyInCart } = useCart();
+	const { addToWishlist, wishlist } = useWishlist();
+
+	const isProductInWishlist =
+		wishlist.findIndex((p) => p._id === prod._id) !== -1;
 
 	const onClickHandler = () => {
-		addToWishlist(axiosRequest, prod);
+		setDisable(true);
+		isProductInWishlist ? null : addToWishlist(axiosRequest, prod);
 		removeFromCart(axiosRequest, prod);
 	};
 
@@ -72,6 +78,7 @@ export const HorizontalCard = ({ prod, isWishlist, btnTitle, featured }) => {
 						<div className="card__footer">
 							<div className="card__actions">
 								<button
+									disabled={disable}
 									className="card__button btn btn--outline--primary"
 									onClick={onClickHandler}
 								>

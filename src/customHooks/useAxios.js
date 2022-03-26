@@ -7,19 +7,18 @@ export const useAxios = () => {
 	let headers = {};
 	let output;
 
-	const axiosRequest = async ({ method, url, resKey, data = {}}) => {
+	const axiosRequest = async ({ method, url, resKey, data = {} }) => {
 		headers = {
 			authorization: token,
 		};
-
 		try {
 			toggleLoader();
 
 			const res = await axios({ url, method, data, headers });
 			if (res.status === 200 || res.status === 201) {
 				output = res.data[resKey];
-			
-				toggleLoader()
+
+				toggleLoader();
 			}
 		} catch (err) {
 			console.log(err);
