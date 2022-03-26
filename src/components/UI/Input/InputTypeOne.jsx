@@ -9,6 +9,8 @@ export const InputTypeOne = (props) => {
 		className,
 		placeholder,
 		name,
+		onChange,
+		value,
 	} = props;
 	return (
 		<div className={wrapperClassName}>
@@ -16,9 +18,12 @@ export const InputTypeOne = (props) => {
 				{labelText}
 			</label>
 			<input
+				value={value}
+				name={name}
 				type={type}
 				className={className}
 				placeholder={placeholder}
+				onChange={onChange}
 				required
 			/>
 		</div>

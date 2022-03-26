@@ -1,4 +1,4 @@
-import { useDocumentTitle } from "../../customHooks/useDocumentTitle";
+import { useDocumentTitle } from "../../customHooks";
 import "./Cart.css";
 import { HorizontalCard } from "../../components";
 import { products } from "../../backend/db/products";

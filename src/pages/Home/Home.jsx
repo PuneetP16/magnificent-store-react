@@ -1,10 +1,9 @@
-import React from "react";
 import { Listing } from "../../components";
 import { banner2 } from "../../data/image/productImages";
 import { categories } from "../../backend/db/categories";
 import { products } from "../../backend/db/products";
 import "./Home.css";
-import { useDocumentTitle } from "../../customHooks/useDocumentTitle";
+import { useDocumentTitle } from "../../customHooks";
 import { CategoryListing } from "../../pages";
 import { Link } from "react-router-dom";
 

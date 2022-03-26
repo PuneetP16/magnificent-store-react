@@ -28,6 +28,10 @@ import balls from "./categories/balls.webp";
 import bags from "./categories/bags.webp";
 import helmets from "./categories/helmets.webp";
 import pads from "./categories/pads.webp";
+import ballLoader from "./loader/ballLoader.gif";
+import ballLoaderwp from "./loader/ballLoader.webp";
+import primaryBallLoader from "./loader/primaryBallLoader.gif";
+import primaryLoader from "./loader/primaryLoader.webp";
 
 export {
 	bags,
@@ -60,4 +64,8 @@ export {
 	shoe1,
 	shoe2,
 	shoe3,
+	ballLoader,
+	ballLoaderwp,
+	primaryBallLoader,
+	primaryLoader,
 };

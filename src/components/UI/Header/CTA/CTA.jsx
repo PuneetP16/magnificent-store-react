@@ -1,15 +1,28 @@
 import "./CTA.css";
 import { ThemeToggle } from "../../../../components";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../../../contexts";
+import { useLocation } from "react-router-dom";
 
-export const CTA = ({ currentPath }) => {
+export const CTA = () => {
+	const { isAuth, toggleAuth } = useAuth();
+
+	const { pathname } = useLocation();
+
+	const onClickHandler = () => {
+		if (isAuth) {
+			localStorage.removeItem("storeToken");
+			toggleAuth();
+		}
+	};
 	return (
 		<div className="header__nav_btns">
 			<Link
+				onClick={onClickHandler}
 				className="btn btn--primary"
-				to={currentPath === "/login" ? "/signup" : "/login"}
+				to={isAuth ? "/" : pathname === "/login" ? "/signup" : "/login"}
 			>
-				{currentPath === "/login" ? "Sign Up" : "Login"}
+				{isAuth ? "Logout" : pathname === "/login" ? "Sign Up" : "Login"}
 			</Link>
 			<Link
 				className="header__links badge_base btn btn--primary btn--icon btn--circular"

@@ -11,6 +11,8 @@ export const InputTypeTwo = (props) => {
 		name,
 		id,
 		required,
+		onChange,
+		onClick,
 	} = props;
 	return (
 		<div className={wrapperClassName}>
@@ -21,6 +23,8 @@ export const InputTypeTwo = (props) => {
 					placeholder={placeholder}
 					name={name}
 					id={id}
+					onChange={onChange}
+					onClick={onClick}
 					required
 				/>
 			) : (
@@ -29,6 +33,8 @@ export const InputTypeTwo = (props) => {
 					className={className}
 					placeholder={placeholder}
 					name={name}
+					onClick={onClick}
+					onChange={onChange}
 					id={id}
 				/>
 			)}
