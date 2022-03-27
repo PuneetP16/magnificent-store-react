@@ -9,7 +9,6 @@ export const signUp = async ({
 }) => {
 	try {
 		const res = await axios.post("/api/auth/signup", signUpData);
-
 		if (res.status === 201) {
 			dispatch({
 				type: "HANDLE_SUBMIT",
@@ -23,7 +22,7 @@ export const signUp = async ({
 			});
 			navigate("/login");
 		}
-	} catch (err) {
+	} catch (error) {
 		console.log(err, "Invalid Credentials");
 	}
 };

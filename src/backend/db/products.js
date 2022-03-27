@@ -43,6 +43,7 @@ export const products = [
 		categoryName: "bats",
 		inStock: true,
 		featured: true,
+		rating: 3,
 	},
 	{
 		_id: uuid(),
@@ -56,6 +57,7 @@ export const products = [
 		categoryName: "bats",
 		inStock: true,
 		featured: true,
+		rating: 4,
 	},
 	{
 		_id: uuid(),
@@ -69,6 +71,7 @@ export const products = [
 		categoryName: "bats",
 		inStock: true,
 		featured: false,
+		rating: 2,
 	},
 	{
 		_id: uuid(),
@@ -82,6 +85,7 @@ export const products = [
 		categoryName: "balls",
 		inStock: false,
 		featured: false,
+		rating: 3,
 	},
 	{
 		_id: uuid(),
@@ -95,6 +99,7 @@ export const products = [
 		categoryName: "balls",
 		featured: false,
 		inStock: false,
+		rating: 4,
 	},
 	{
 		_id: uuid(),
@@ -108,6 +113,7 @@ export const products = [
 		categoryName: "balls",
 		featured: true,
 		inStock: true,
+		rating: 3,
 	},
 	{
 		_id: uuid(),
@@ -121,6 +127,7 @@ export const products = [
 		categoryName: "bags",
 		featured: false,
 		inStock: false,
+		rating: 4,
 	},
 	{
 		_id: uuid(),
@@ -134,6 +141,7 @@ export const products = [
 		categoryName: "bags",
 		inStock: true,
 		featured: true,
+		rating: 3,
 	},
 	{
 		_id: uuid(),
@@ -147,6 +155,7 @@ export const products = [
 		categoryName: "bags",
 		inStock: false,
 		featured: false,
+		rating: 3,
 	},
 	{
 		_id: uuid(),
@@ -160,6 +169,7 @@ export const products = [
 		categoryName: "clothes",
 		inStock: true,
 		featured: false,
+		rating: 3,
 	},
 	{
 		_id: uuid(),
@@ -173,6 +183,7 @@ export const products = [
 		categoryName: "clothes",
 		inStock: true,
 		featured: true,
+		rating: 3,
 	},
 	{
 		_id: uuid(),
@@ -186,6 +197,7 @@ export const products = [
 		categoryName: "clothes",
 		inStock: true,
 		featured: false,
+		rating: 2,
 	},
 	{
 		_id: uuid(),
@@ -199,6 +211,7 @@ export const products = [
 		categoryName: "helmets",
 		inStock: true,
 		featured: true,
+		rating: 2,
 	},
 	{
 		_id: uuid(),
@@ -212,6 +225,7 @@ export const products = [
 		categoryName: "helmets",
 		inStock: true,
 		featured: false,
+		rating: 1,
 	},
 	{
 		_id: uuid(),
@@ -225,6 +239,7 @@ export const products = [
 		categoryName: "helmets",
 		inStock: true,
 		featured: false,
+		rating: 1,
 	},
 	{
 		_id: uuid(),
@@ -238,6 +253,7 @@ export const products = [
 		categoryName: "pads",
 		inStock: true,
 		featured: true,
+		rating: 4,
 	},
 	{
 		_id: uuid(),
@@ -251,6 +267,7 @@ export const products = [
 		categoryName: "pads",
 		inStock: true,
 		featured: false,
+		rating: 2,
 	},
 	{
 		_id: uuid(),
@@ -264,6 +281,7 @@ export const products = [
 		categoryName: "pads",
 		inStock: true,
 		featured: false,
+		rating: 2,
 	},
 	{
 		_id: uuid(),
@@ -277,5 +295,6 @@ export const products = [
 		categoryName: "pads",
 		inStock: true,
 		featured: false,
+		rating: 2,
 	},
 ];

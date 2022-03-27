@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Listing } from "../../components";
 import { useWishlist } from "../../contexts";
-import { useAxios, useDocumentTitle } from "../../customHooks";
+import { useDocumentTitle } from "../../customHooks";
 import "./Wishlist.css";
 
 export const Wishlist = () => {

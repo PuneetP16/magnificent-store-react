@@ -20,8 +20,8 @@ export const useAxios = () => {
 
 				toggleLoader();
 			}
-		} catch (err) {
-			console.log(err);
+		} catch (error) {
+			console.error(error.message);
 			toggleLoader();
 		}
 		return { output };

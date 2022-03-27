@@ -6,8 +6,10 @@ import {
 	ThemeProvider,
 	UserProvider,
 	WishlistProvider,
+	FilterProvider,
 } from "./index";
 import { BrowserRouter } from "react-router-dom";
+import { ProductProvider } from "./productContext";
 
 const MagnificentContext = createContext();
 
@@ -18,17 +20,21 @@ export const MagnificentProvider = ({ children }) => {
 	return (
 		<MagnificentContext.Provider value={value}>
 			<BrowserRouter>
-				<UserProvider>
-					<WishlistProvider>
-						<CartProvider>
-							<LoaderProvider>
-								<AuthProvider>
-									<ThemeProvider>{children}</ThemeProvider>
-								</AuthProvider>
-							</LoaderProvider>
-						</CartProvider>
-					</WishlistProvider>
-				</UserProvider>
+				<LoaderProvider>
+					<AuthProvider>
+						<UserProvider>
+							<ProductProvider>
+								<WishlistProvider>
+									<CartProvider>
+										<FilterProvider>
+											<ThemeProvider>{children}</ThemeProvider>
+										</FilterProvider>
+									</CartProvider>
+								</WishlistProvider>
+							</ProductProvider>
+						</UserProvider>
+					</AuthProvider>
+				</LoaderProvider>
 			</BrowserRouter>
 		</MagnificentContext.Provider>
 	);

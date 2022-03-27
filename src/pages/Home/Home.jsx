@@ -4,39 +4,12 @@ import "./Home.css";
 import { useAxios, useDocumentTitle } from "../../customHooks";
 import { CategoryListing } from "../../pages";
 import { Link } from "react-router-dom";
-import { useAuth, useLoader } from "../../contexts";
-import { useState, useEffect } from "react";
+import { useAuth, useLoader, useProduct } from "../../contexts";
 
 export const Home = () => {
-	const { token } = useAuth();
 	useDocumentTitle("Home | MS");
-	const { loader } = useLoader();
-	const [productList, setProductList] = useState([]);
-	const [categoryList, setCategoryList] = useState([]);
-	const { axiosRequest } = useAxios();
 
-	const fetchProductsURL = "/api/products";
-	const fetchCategoryURL = "/api/categories";
-
-	useEffect(() => {
-		(async () => {
-			const { output } = await axiosRequest({
-				method: "GET",
-				url: fetchProductsURL,
-				resKey: "products",
-			});
-			if (output) setProductList(output);
-		})();
-
-		(async () => {
-			const { output } = await axiosRequest({
-				method: "GET",
-				url: fetchCategoryURL,
-				resKey: "categories",
-			});
-			if (output) setCategoryList(output);
-		})();
-	}, [setCategoryList, setProductList]);
+	const { productList, categoryList } = useProduct();
 
 	return (
 		<div>

@@ -91,7 +91,7 @@ export const ProductCard = ({ prod, featured, isWishlist, btnTitle }) => {
 				<div className="card__dismiss dark btn btn--icon btn--close--transparent alert--btn__dismiss btn--circular">
 					<i className="bx bx-x"></i>
 				</div>
-				<Rating />
+				<Rating rating={prod.rating} />
 			</article>
 		</li>
 	);
