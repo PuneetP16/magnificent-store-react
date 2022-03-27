@@ -5,3 +5,5 @@ export { useAuth, AuthProvider } from "./authContext";
 export { useCart, CartProvider } from "./cartContext";
 export { useWishlist, WishlistProvider } from "./wishlistContext";
 export { useMagnificent, MagnificentProvider } from "./magnificentContext";
+export { useFilter, FilterProvider } from "./filterContext";
+export { useProduct, ProductProvider } from "./productContext";

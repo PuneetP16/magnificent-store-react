@@ -50,7 +50,7 @@ export const signIn = async ({
 		if (res.status === 201) {
 			throw console.log("Invalid Password, Try Again");
 		}
-	} catch (err) {
+	} catch (error) {
 		console.log(err, "Invalid Credentials");
 		toggleLoader();
 	}

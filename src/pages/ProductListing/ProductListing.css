@@ -2,7 +2,7 @@
 
 .product_page_wrapper {
 	display: grid;
-	grid-template-columns: 25rem 1fr;
+	grid-template-columns: 25rem calc(100vw - 25rem);
 	grid-template-rows: 1fr;
 	grid-template-areas: "aside main";
 	margin: auto;
@@ -59,7 +59,7 @@
 
 /* -----filter Form-----  */
 
-	.filter {
+.filter {
 	color: var(--COLOR-TXT);
 	display: flex;
 	flex-flow: column nowrap;
