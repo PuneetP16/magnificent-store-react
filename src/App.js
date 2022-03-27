@@ -45,6 +45,7 @@ function App() {
 			{(pathname !== "/pagenotfound" || (pathname !== "/login" && loader)) && (
 				<Footer />
 			)}
+			{loader && <Loader />}
 		</div>
 	);
 }

@@ -1,8 +1,29 @@
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { Rating } from "../../../components";
+import { useAuth, useWishlist } from "../../../contexts";
+import { useAxios } from "../../../customHooks";
 import { CardActionBtn } from "../CardActionBtn";
 import "./ProductCard.css";
 
 export const ProductCard = ({ prod, featured, isWishlist, btnTitle }) => {
+	const { wishlist, addToWishlist, removeFromWishlist, getUpdatedWishlist } =
+		useWishlist();
+	const { isAuth } = useAuth();
+	const { axiosRequest } = useAxios();
+	const navigate = useNavigate();
+
+	const isProductInWishlist =
+		wishlist.findIndex((p) => p._id === prod._id) !== -1;
+
+	const onClickHandler = () => {
+		isAuth
+			? isProductInWishlist
+				? removeFromWishlist(axiosRequest, prod)
+				: addToWishlist(axiosRequest, prod)
+			: navigate("/login");
+	};
+
 	return (
 		<li key={prod._id} className="categories__list">
 			<article
@@ -41,8 +62,11 @@ export const ProductCard = ({ prod, featured, isWishlist, btnTitle }) => {
 					</div>
 					<ul className="card__icons">
 						<li className="card__list flex-center">
-							<button className="card__link btn btn--outline--primary btn--icon like">
-								{isWishlist ? (
+							<button
+								onClick={onClickHandler}
+								className="card__link btn btn--outline--primary btn--icon like"
+							>
+								{isProductInWishlist ? (
 									<i className="bx bxs-heart"></i>
 								) : (
 									<i className="bx bx-heart"></i>

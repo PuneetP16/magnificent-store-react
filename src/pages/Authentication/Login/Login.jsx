@@ -51,7 +51,6 @@ export const Login = () => {
 	return (
 		<main>
 			<div className="center">
-				{loader && <Loader />}
 				<form onSubmit={onSubmitHandler} className="form flex" method="get">
 					<h2 className="h3">Login</h2>
 					<InputTypeOne

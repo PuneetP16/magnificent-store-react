@@ -1,36 +1,22 @@
 import { Rating } from "../../../components";
 import "./HorizontalCard.css";
 import { useAxios } from "../../../customHooks";
-import { useCart } from "../../../contexts";
+import { useCart, useWishlist } from "../../../contexts";
+import { useState } from "react";
 
-export const HorizontalCard = ({ prod, isWishlist, btnTitle, featured }) => {
+export const HorizontalCard = ({ prod, btnTitle, featured }) => {
+	const [disable, setDisable] = useState(false);
 	const { axiosRequest } = useAxios();
-	const { cart, totalQty, cartDispatch } = useCart();
+	const { cart, removeFromCart, updateQtyInCart } = useCart();
+	const { addToWishlist, wishlist } = useWishlist();
 
-	const currentProductURL = `/api/user/cart/${prod._id}`;
-	const removeFromCart = async () => {
-		const { output } = await axiosRequest({
-			method: "DELETE",
-			url: currentProductURL,
-			resKey: "cart",
-			data: { product: prod },
-		});
-		cartDispatch({ type: "REMOVE", payload: output, product: prod });
-		//Client Side Update
-		// cartDispatch({ type: "REMOVE", payload: prod });
-	};
+	const isProductInWishlist =
+		wishlist.findIndex((p) => p._id === prod._id) !== -1;
 
-	const updateQtyInCart = async (e) => {
-		const itemQty = Number(e.target.value);
-		const action = { type: "update", qty: itemQty };
-		const { output } = await axiosRequest({
-			method: "POST",
-			url: currentProductURL,
-			resKey: "cart",
-			data: { action: action },
-		});
-		console.log("output here", output);
-		cartDispatch({ type: "UPDATE", payload: output, product: prod });
+	const onClickHandler = () => {
+		setDisable(true);
+		isProductInWishlist ? null : addToWishlist(axiosRequest, prod);
+		removeFromCart(axiosRequest, prod);
 	};
 
 	return (
@@ -69,7 +55,7 @@ export const HorizontalCard = ({ prod, isWishlist, btnTitle, featured }) => {
 									Quantity:
 								</label>
 								<select
-									onChange={updateQtyInCart}
+									onChange={(e) => updateQtyInCart(e, axiosRequest, prod)}
 									className="card__quantity_values"
 									value={prod.qty}
 								>
@@ -83,7 +69,7 @@ export const HorizontalCard = ({ prod, isWishlist, btnTitle, featured }) => {
 								</select>
 							</div>
 							<button
-								onClick={removeFromCart}
+								onClick={() => removeFromCart(axiosRequest, prod)}
 								className="card_btn--delete btn btn--outline--danger btn--icon btn--round grid-center"
 							>
 								<i className="bx bxs-trash-alt"></i>
@@ -92,8 +78,9 @@ export const HorizontalCard = ({ prod, isWishlist, btnTitle, featured }) => {
 						<div className="card__footer">
 							<div className="card__actions">
 								<button
+									disabled={disable}
 									className="card__button btn btn--outline--primary"
-									// onClick={onClickHandler}
+									onClick={onClickHandler}
 								>
 									{btnTitle}
 								</button>
