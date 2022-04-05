@@ -1,26 +1,50 @@
-/* .card .like:hover {
-	background-color: default;
-	color: default;
-} */
-
-.card .like:hover {
-	background-color: inherit;
-	color: var(--COLOR-PRIMARY);
+.card .card__icons .like:hover {
+	background-color: var(--COLOR-PRIMARY-THEME);
+	color: var(--COLOR-PRIMARY-THEME);
 	box-shadow: none;
 	opacity: 1;
 }
 .card .like {
-	background-color: inherit;
+	background-color: var(--COLOR-PRIMARY-OPP);
 	border: none;
 	border-radius: 5px;
 	box-shadow: none;
 	opacity: 1;
+	width: 3.4rem;
+	height: 3.4rem;
 }
-.card .like i {
-	font-size: 3rem;
+.card .card__icons .like i {
+	font-size: 2.8rem;
+	color: var(--COLOR-PRIMARY-OPP);
 }
 
+.card .card__icons .like i:hover {
+	transform: scale(1.1);
+}
 
-li .card--vertical_v2  {
+li .card--vertical_v2 {
 	min-height: 44rem;
+}
+
+.card .card__icons .card__link {
+	width: 3.9rem;
+	height: 3.9rem;
+	background: var(--COLOR-PRIMARY-THEME);
+}
+
+.card--shopping .card__button {
+	opacity: 1;
+}
+
+.card--cart .card__button {
+	padding: 2px 8px;
+}
+
+.card--cart .card__button {
+	padding: 0.6rem 1rem;
+}
+
+.card--cart .card__body {
+	padding: 0.8rem 2.5rem;
+	gap: 1rem;
 }

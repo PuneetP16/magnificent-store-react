@@ -6,7 +6,7 @@ export const BillingCard = () => {
 
 	const { original, discount } = totalPrice;
 	return (
-		<aside className="aside aside--products billing_section">
+		<aside className="aside--products billing_section">
 			<form action="post" className="bill_wrapper">
 				<h3 className="h5 bill__head">Price Details</h3>
 				<hr />

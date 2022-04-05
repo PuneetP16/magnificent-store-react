@@ -1,10 +1,10 @@
-import { Listing, Loader } from "../../components";
+import { Listing } from "../../components";
 import { banner2 } from "../../data/image/productImages";
 import "./Home.css";
-import { useAxios, useDocumentTitle } from "../../customHooks";
+import { useDocumentTitle } from "../../customHooks";
 import { CategoryListing } from "../../pages";
 import { Link } from "react-router-dom";
-import { useAuth, useLoader, useProduct } from "../../contexts";
+import { useProduct } from "../../contexts";
 
 export const Home = () => {
 	useDocumentTitle("Home | MS");

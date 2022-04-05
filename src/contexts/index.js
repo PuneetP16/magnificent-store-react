@@ -7,3 +7,4 @@ export { useWishlist, WishlistProvider } from "./wishlistContext";
 export { useMagnificent, MagnificentProvider } from "./magnificentContext";
 export { useFilter, FilterProvider } from "./filterContext";
 export { useProduct, ProductProvider } from "./productContext";
+export { ScrollToTopProvider } from "./scrollToTopContext";

@@ -36,7 +36,7 @@ a {
 	align-content: space-around;
 	align-items: flex-start;
 	min-width: 50rem;
-	gap: 2.4rem;
+	gap: 1.5rem;
 	padding: 3.5rem;
 	box-shadow: 0 5px 10px var(--COLOR-CARD-BOX-SHADOW0),
 		0 3px 1px -2px var(--COLOR-BOX-SHADOW1), 0 2px 2px var(--COLOR-BOX-SHADOW2),

@@ -17,21 +17,30 @@ export const CTA = () => {
 			toggleAuth();
 		}
 	};
+
+	const isLoginPage = (() => pathname === "/login")();
+	const getBtnName = (() =>
+		isAuth ? "Logout" : pathname === "/login" ? "Sign Up" : "Login")();
+	const getBtnIcon = (() =>
+		isAuth ? (
+			<i className="bx bx-log-out"></i>
+		) : isLoginPage ? (
+			<i className="bx bx-user-plus"></i>
+		) : (
+			<i className="bx bx-log-in"></i>
+		))();
+	const getLinkPath = (() =>
+		isAuth ? "/" : pathname === "/login" ? "/signup" : "/login")();
+
 	return (
 		<div className="header__nav_btns">
 			<Link
 				onClick={onClickHandler}
 				className="btn btn--primary btn--icon"
-				to={isAuth ? "/" : pathname === "/login" ? "/signup" : "/login"}
+				to={getLinkPath}
 			>
-				{isAuth ? "Logout" : pathname === "/login" ? "Sign Up" : "Login"}
-				{isAuth ? (
-					<i className="bx bx-log-out"></i>
-				) : pathname === "/login" ? (
-					<i className="bx bx-user-plus"></i>
-				) : (
-					<i className="bx bx-log-in"></i>
-				)}
+				{getBtnName}
+				{getBtnIcon}
 			</Link>
 			<Link
 				className="header__links badge_base btn btn--primary btn--icon btn--circular"

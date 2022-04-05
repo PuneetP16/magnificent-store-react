@@ -10,6 +10,7 @@ import {
 } from "./index";
 import { BrowserRouter } from "react-router-dom";
 import { ProductProvider } from "./productContext";
+import { ScrollToTopProvider } from "./scrollToTopContext";
 
 const MagnificentContext = createContext();
 
@@ -27,7 +28,9 @@ export const MagnificentProvider = ({ children }) => {
 								<WishlistProvider>
 									<CartProvider>
 										<FilterProvider>
-											<ThemeProvider>{children}</ThemeProvider>
+											<ScrollToTopProvider>
+												<ThemeProvider>{children}</ThemeProvider>
+											</ScrollToTopProvider>
 										</FilterProvider>
 									</CartProvider>
 								</WishlistProvider>

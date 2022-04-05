@@ -5,8 +5,6 @@ export const cartReducer = (
 	cart = [...payload];
 	switch (type) {
 		case "ADD":
-			// Client side update
-			// cart = [...cart, payload];
 			totalQty = totalQty + 1;
 			totalPrice.original += product.price.original;
 			totalPrice.discount +=
@@ -19,8 +17,6 @@ export const cartReducer = (
 			};
 
 		case "REMOVE":
-			// Client side update
-			// cart = cart.filter((p) => p._id !== payload._id);
 			totalQty -= product.qty;
 
 			totalPrice.original -= product.price.original * product.qty;
@@ -32,8 +28,6 @@ export const cartReducer = (
 			return { cart, totalQty, totalPrice };
 
 		case "UPDATE":
-			// Client side update
-			// cart = cart.filter((p) => p._id !== payload._id);
 			const prod = payload.find((p) => p._id === product._id);
 
 			// Price calculation of quantity before update

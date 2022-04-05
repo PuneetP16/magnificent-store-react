@@ -1,10 +1,10 @@
 import "./App.css";
+import "./responsive.css";
 import { MockBee } from "./backend/mockdocs/MockBee";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import MockAPI from "./backend/mockdocs/MockMan";
 import { Footer, Header, Loader } from "./components";
-import { useAuth, useFilter, useLoader } from "./contexts";
-import { useEffect } from "react";
+import { useAuth, useLoader } from "./contexts";
 import {
 	Cart,
 	Home,
@@ -14,16 +14,11 @@ import {
 	ProductListing,
 	NotFound,
 } from "./pages";
-import { useAxios } from "./customHooks";
 
 function App() {
 	const { pathname } = useLocation();
 	const { isAuth } = useAuth();
-	const { loader, toggleLoader } = useLoader();
-	const { filterDispatch: dispatch } = useFilter();
-	const { axiosRequest } = useAxios();
-
-	
+	const { loader } = useLoader();
 
 	return (
 		<div className="App body">

@@ -1,7 +1,7 @@
 import { CategoryCard } from "../../../components";
 import { useFilter, useProduct } from "../../../contexts";
 import "./Filters.css";
-export const Filters = () => {
+export const Filters = ({ showFilter }) => {
 	const {
 		category,
 		rating,
@@ -12,7 +12,12 @@ export const Filters = () => {
 	} = useFilter();
 
 	return (
-		<aside className="aside aside--products">
+		<aside
+			onClick={(e) => e.stopPropagation()}
+			className={`aside aside--filter ${
+				showFilter ? "filter__responsive" : ""
+			}`}
+		>
 			<form className="filter">
 				<header className="filter__header">
 					<h3 className="h5 filter__head">Filters</h3>

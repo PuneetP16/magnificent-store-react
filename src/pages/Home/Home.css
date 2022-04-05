@@ -24,7 +24,7 @@
 }
 
 .section__heading {
-	color: var(--COLOR-TXT-PRIMARY);
+	color: var(--COLOR-PRIMARY-THEME);
 	font-weight: 500;
 }
 
@@ -49,6 +49,10 @@
 	list-style-type: none;
 }
 
+ul {
+	padding: 0;
+}
+
 .categories__links {
 	position: relative;
 	text-decoration: none;
@@ -56,13 +60,14 @@
 
 .categories__links > img {
 	max-width: 22rem;
+	max-width: 24rem;
 }
 
 .categories__links > span {
-	background-color: var(--COLOR-OFFLINE);
+	background-color: var(--COLOR-PRIMARY);
 	display: flex;
 	font-size: 2.2rem;
-	font-weight: 500;
+	font-weight: 700;
 	justify-content: center;
 	opacity: 0.7;
 	position: absolute;
@@ -94,3 +99,4 @@
 .image--responsive:hover {
 	object-fit: contain;
 }
+
