@@ -137,6 +137,10 @@
 	.header .search_box {
 		display: none;
 	}
+
+	body .form {
+		min-width: 40rem;
+	}
 }
 
 @media only screen and (max-width: 500px) {
@@ -157,6 +161,10 @@
 		cursor: pointer;
 		font-size: 2.2rem;
 	}
+
+	body .form {
+		min-width: 30rem;
+	}
 }
 
 @media only screen and (max-width: 400px) {
@@ -175,5 +183,12 @@
 	body .brand__text {
 		cursor: pointer;
 		font-size: 1.8rem;
+	}
+
+	body .header__nav_btns {
+		display: flex;
+		grid-gap: 7px;
+		gap: 7px;
+		padding-right: 0;
 	}
 }
