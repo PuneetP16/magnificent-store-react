@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SearchBox.css";
 
-export const SearchBox = () => {
+export const SearchBoxMobile = () => {
 	const [query, setQuery] = useState("");
 	const navigate = useNavigate();
 
@@ -17,11 +17,7 @@ export const SearchBox = () => {
 	};
 
 	return (
-		<form
-			onSubmit={passQuery}
-			className="search_box search_on_header"
-			method="get"
-		>
+		<form onSubmit={passQuery} className="search_on_mobile" method="get">
 			<input
 				type="search"
 				className="input_box"

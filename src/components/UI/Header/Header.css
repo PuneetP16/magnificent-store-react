@@ -91,3 +91,29 @@
 .search_box .btn--icon {
 	border-radius: 0;
 }
+
+.search_on_mobile {
+	display: none;
+	grid-area: search;
+	width: 100%;
+}
+
+@media only screen and (max-width: 780px) {
+	.search_on_mobile {
+		display: flex;
+		justify-content: center;
+		background-color: white;
+		border-radius: 4px;
+		overflow: hidden;
+		height: 4.2rem;
+		width: 100%;
+		margin: 1rem;
+		top: 8rem;
+		position: sticky;
+		z-index: var(--z-index-4);
+	}
+
+	.search_box .input_box {
+		width: 100%;
+	}
+}
