@@ -30,7 +30,7 @@ export const categories = [
 	},
 	{
 		_id: uuid(),
-		categoryName: "helmet",
+		categoryName: "helmets",
 		description:
 			"The cricket helmet is designed to stop serious injury occuring due to being hit on the head by the cricket ball.",
 		src: helmets,

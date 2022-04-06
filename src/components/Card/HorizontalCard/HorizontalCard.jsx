@@ -91,7 +91,7 @@ export const HorizontalCard = ({ prod, btnTitle, featured }) => {
 						<span>popular</span>
 					</div>
 				</div>
-				<Rating />
+				<Rating rating={prod.rating} />
 			</article>
 		</li>
 	);

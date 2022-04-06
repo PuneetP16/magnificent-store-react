@@ -1,7 +1,7 @@
 .card__rating {
 	position: absolute;
-	top: 5px;
-	left: 5px;
+	top: 4px;
+	left: 4px;
 	display: flex;
 	flex-flow: row nowrap;
 	gap: 0;
@@ -10,7 +10,7 @@
 	width: fit-content;
 	border-radius: 4px;
 	font-weight: bold;
-	padding-left: 2px;
+	padding-left: 4px;
 	cursor: default;
 	background-color: var(--COLOR-PRIMARY);
 	color: var(--COLOR-WHITE);

@@ -9,6 +9,16 @@ const filterReducer = (
 	{ type, payload }
 ) => {
 	switch (type) {
+		case "CATEGORY_SELECTION":
+			category = [payload];
+
+			return {
+				category,
+				rating,
+				sortByPrice,
+				priceRange,
+			};
+
 		case "CATEGORY":
 			const newCategoryList = [...category];
 			const isCategoryPresent =

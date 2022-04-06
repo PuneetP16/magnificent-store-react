@@ -27,5 +27,9 @@
 
 .card--cart .card__body {
 	min-width: 25rem;
-	padding: 0 2.5rem;
+	padding: 5px 2.5rem;
+}
+
+.categories__items .categories__list .card {
+	border: 0;
 }

@@ -7,6 +7,10 @@ html[current_theme="light"] {
 	--COLOR-OFFWHITE: #d3dded;
 	--COLOR-CARD-BG: white;
 	--COLOR-PRIMARY-DARK: #e6f0ff;
+	--COLOR-CARD-BOX-SHADOW0: rgb(0 0 0 / 20%);
+    --COLOR-CARD-BOX-SHADOW1: rgba(0, 0, 0, 0.56);
+    --COLOR-CARD-BOX-SHADOW2: #32325d1a;
+    --COLOR-CARD-BOX-SHADOW3: #324dc549;
 }
 
 html[current_theme="dark"] {
@@ -18,4 +22,8 @@ html[current_theme="dark"] {
 	--COLOR-OFFWHITE: #2255a4;
 	--COLOR-CARD-BG: #0c1e3a;
 	--COLOR-PRIMARY-DARK: #163d77;
+	--COLOR-CARD-BOX-SHADOW0: rgb(0 0 0 / 20%);
+    --COLOR-CARD-BOX-SHADOW1: #ccd9faa9;
+    --COLOR-CARD-BOX-SHADOW2: #32325d1a;
+    --COLOR-CARD-BOX-SHADOW3: #324dc549;
 }
