@@ -12,27 +12,25 @@ export const Alert = ({ alert, setAlert }) => {
 	const { text, visibility, type } = alert;
 
 	useEffect(() => {
-		const timerVar = setTimeout(() => {
+		const timeOutId = setTimeout(() => {
 			setAlert((s) => ({
 				...s,
 				visibility: false,
 			}));
 		}, 2000);
 
-		return () => clearTimeout(timerVar);
+		return () => clearTimeout(timeOutId);
 	}, [setAlert, alert.visibility]);
 
 	return visibility ? (
-		// <div className="alerts flex-col-align-center fw">
-			<div className={`alert ${type} alert--dismissable`}>
-				{text}
-				<button
-					onClick={onClickHandler}
-					className="btn btn--icon btn--close--transparent alert--btn__dismiss btn--circular"
-				>
-					{bxIcons.cross}
-				</button>
-			</div>
-		// </div>
+		<div className={`alert ${type} alert--dismissable`}>
+			{text}
+			<button
+				onClick={onClickHandler}
+				className="btn btn--icon btn--close--transparent alert--btn__dismiss btn--circular"
+			>
+				{bxIcons.cross}
+			</button>
+		</div>
 	) : null;
 };

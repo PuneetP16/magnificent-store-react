@@ -40,6 +40,7 @@ function App() {
 				<Route path="/wishlist" element={<Wishlist />} />
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/productlisting" element={<ProductListing />} />
+				<Route path="/productlisting/search" element={<ProductListing />} />
 				<Route path="/pagenotfound" element={<NotFound />} />
 				<Route path="*" element={<Navigate to="/pagenotfound" replace />} />
 			</Routes>
