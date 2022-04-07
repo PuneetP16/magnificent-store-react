@@ -5,7 +5,7 @@ const FilterContext = createContext();
 export const useFilter = () => useContext(FilterContext);
 
 const filterReducer = (
-	{ category, rating, sortByPrice, priceRange },
+	{ category, rating, sortByPrice, priceRange, search},
 	{ type, payload }
 ) => {
 	switch (type) {
@@ -17,6 +17,7 @@ const filterReducer = (
 				rating,
 				sortByPrice,
 				priceRange,
+				search,
 			};
 
 		case "CATEGORY":
@@ -33,6 +34,7 @@ const filterReducer = (
 				rating,
 				sortByPrice,
 				priceRange,
+				search,
 			};
 
 		case "RATING":
@@ -43,6 +45,7 @@ const filterReducer = (
 					rating,
 					sortByPrice,
 					priceRange,
+					search,
 				};
 			}
 			rating = payload;
@@ -51,6 +54,7 @@ const filterReducer = (
 				rating,
 				sortByPrice,
 				priceRange,
+				search,
 			};
 
 		case "SORT_BY_PRICE":
@@ -60,6 +64,7 @@ const filterReducer = (
 				rating,
 				sortByPrice,
 				priceRange,
+				search,
 			};
 
 		case "PRICE_RANGE":
@@ -69,6 +74,17 @@ const filterReducer = (
 				rating,
 				sortByPrice,
 				priceRange,
+				search,
+			};
+
+		case "SEARCH":
+			search = payload;
+			return {
+				category,
+				rating,
+				sortByPrice,
+				priceRange,
+				search,
 			};
 
 		case "RESET":
@@ -80,6 +96,7 @@ const filterReducer = (
 				rating,
 				sortByPrice,
 				priceRange,
+				search,
 			};
 	}
 };
@@ -90,10 +107,13 @@ export const FilterProvider = ({ children }) => {
 		rating: null,
 		sortByPrice: null,
 		priceRange: 15000,
+		search: "",
 	};
 
-	const [{ category, rating, sortByPrice, priceRange }, filterDispatch] =
-		useReducer(filterReducer, initialFilterState);
+	const [
+		{ category, rating, sortByPrice, priceRange, search },
+		filterDispatch,
+	] = useReducer(filterReducer, initialFilterState);
 
 	const value = {
 		filterDispatch,
@@ -101,6 +121,7 @@ export const FilterProvider = ({ children }) => {
 		rating,
 		sortByPrice,
 		priceRange,
+		search,
 		initialFilterState,
 	};
 

@@ -34,3 +34,5 @@ export const Alert = ({ alert, setAlert }) => {
 		</div>
 	) : null;
 };
+
+

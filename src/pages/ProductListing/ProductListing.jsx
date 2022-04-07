@@ -12,22 +12,31 @@ import {
 	sortByPrice,
 } from "../../utilities";
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export const ProductListing = () => {
 	useDocumentTitle("Products | MS");
 
-	const { category, rating, sortByPrice: sort, priceRange } = useFilter();
+	const {
+		category,
+		rating,
+		sortByPrice: sort,
+		priceRange,
+		search,
+		filterDispatch,
+	} = useFilter();
 	const { productList, categoryList, productDispatch } = useProduct();
 	const [showFilter, setShowFilter] = useState(false);
 
-	const { search } = useLocation();
-	const urlParam = new URLSearchParams(search);
+	const location = useLocation();
+	const urlParam = new URLSearchParams(location.search);
 	const searchQuery = urlParam.get("query");
 
-	let searchedProductList;
-	if (searchQuery) {
-		searchedProductList = getSearchedProducts(productList, searchQuery);
-	}
+	useEffect(() => {
+		if (searchQuery) {
+			filterDispatch({ type: "SEARCH", payload: searchQuery });
+		}
+	}, [filterDispatch, searchQuery]);
 
 	const closeFilter = () => {
 		showFilter && setShowFilter((visible) => !visible);
@@ -68,12 +77,13 @@ export const ProductListing = () => {
 		}
 	};
 
-	const selectedList = searchedProductList ? searchedProductList : productList;
+	// const selectedList = searchedProductList ? searchedProductList : productList;
 
-	let filteredList = categoryFilter(selectedList, category);
+	let filteredList = categoryFilter(productList, category);
 	filteredList = ratingFilter(filteredList, rating);
 	filteredList = priceFilter(filteredList, priceRange);
 	filteredList = sortByPrice(filteredList, sort);
+	filteredList = getSearchedProducts(filteredList, search);
 
 	return (
 		<div className="product_page_wrapper">

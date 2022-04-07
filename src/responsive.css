@@ -75,7 +75,7 @@
 	body .search_box {
 		display: flex;
 		justify-content: center;
-		background-color: white;
+		background-color: var(--COLOR-WHITE);
 		border-radius: 4px;
 		overflow: hidden;
 		height: 4rem;
@@ -84,10 +84,6 @@
 	.aside--filter {
 		display: none;
 	}
-
-	/* .filter__modal {
-		display: flex;
-	} */
 
 	.filter__modal {
 		position: absolute;
