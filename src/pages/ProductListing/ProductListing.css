@@ -194,7 +194,7 @@
 .filter__icon {
 	display: none;
 	position: fixed;
-	top: 8rem;
+	top: 13rem;
 	left: 1rem;
 	z-index: var(--z-index-2);
 }
@@ -202,7 +202,7 @@
 .filter__responsive {
 	display: flex;
 	position: fixed;
-	top: 13rem;
+	top: 17rem;
 	left: -1rem;
 	z-index: var(--z-index-2);
 	background-color: var(--COLOR-BG);

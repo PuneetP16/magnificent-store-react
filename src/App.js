@@ -3,7 +3,7 @@ import "./responsive.css";
 import { MockBee } from "./backend/mockdocs/MockBee";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import MockAPI from "./backend/mockdocs/MockMan";
-import { Footer, Header, Loader } from "./components";
+import { Footer, Header, Loader, SearchBoxMobile } from "./components";
 import { useAuth, useLoader } from "./contexts";
 import {
 	Cart,
@@ -23,7 +23,7 @@ function App() {
 	return (
 		<div className="App body">
 			{pathname !== "/pagenotfound" && <Header />}
-
+			<SearchBoxMobile />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/mockbee" element={<MockBee />} />
@@ -40,6 +40,7 @@ function App() {
 				<Route path="/wishlist" element={<Wishlist />} />
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/productlisting" element={<ProductListing />} />
+				<Route path="/productlisting/search" element={<ProductListing />} />
 				<Route path="/pagenotfound" element={<NotFound />} />
 				<Route path="*" element={<Navigate to="/pagenotfound" replace />} />
 			</Routes>

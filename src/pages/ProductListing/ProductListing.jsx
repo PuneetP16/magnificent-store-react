@@ -6,18 +6,28 @@ import { useFilter, useProduct } from "../../contexts";
 import { useState } from "react";
 import {
 	categoryFilter,
+	getSearchedProducts,
 	priceFilter,
 	ratingFilter,
 	sortByPrice,
 } from "../../utilities";
+import { useLocation } from "react-router-dom";
 
 export const ProductListing = () => {
 	useDocumentTitle("Products | MS");
+
 	const { category, rating, sortByPrice: sort, priceRange } = useFilter();
-
-	const { productList, categoryList } = useProduct();
-
+	const { productList, categoryList, productDispatch } = useProduct();
 	const [showFilter, setShowFilter] = useState(false);
+
+	const { search } = useLocation();
+	const urlParam = new URLSearchParams(search);
+	const searchQuery = urlParam.get("query");
+
+	let searchedProductList;
+	if (searchQuery) {
+		searchedProductList = getSearchedProducts(productList, searchQuery);
+	}
 
 	const closeFilter = () => {
 		showFilter && setShowFilter((visible) => !visible);
@@ -58,7 +68,9 @@ export const ProductListing = () => {
 		}
 	};
 
-	let filteredList = categoryFilter(productList, category);
+	const selectedList = searchedProductList ? searchedProductList : productList;
+
+	let filteredList = categoryFilter(selectedList, category);
 	filteredList = ratingFilter(filteredList, rating);
 	filteredList = priceFilter(filteredList, priceRange);
 	filteredList = sortByPrice(filteredList, sort);

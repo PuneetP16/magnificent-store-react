@@ -36,7 +36,9 @@ export const CTA = () => {
 		<div className="header__nav_btns">
 			<Link
 				onClick={onClickHandler}
-				className="btn btn--primary btn--icon"
+				className={`btn btn--primary btn--icon auth__btn ${
+					isAuth ? "auth__btn--logout" : ""
+				}`}
 				to={getLinkPath}
 			>
 				{getBtnName}
