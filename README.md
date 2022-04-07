@@ -103,6 +103,11 @@ b. Products
   * All pages are made responsive with respect to mobile screens with Width greater than 320px
   * Filter Panel, Header/NavBar, and SearchBar are also made responsive on mobile screens.
 
+### 12. Dark Mode Toggle
+Theme can be toggled between light mode and dark mode by clicking the toggle located at the top-right corner of every page.
+
+Theme will remain persistent between different browser sessions. (Implemented local storage to store theme memory)
+
 ## **How to run this app Locally**
 
 To run this app locally on your machine, clone the repo to your local machine.
