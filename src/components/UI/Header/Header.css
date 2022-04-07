@@ -73,7 +73,7 @@
 .search_box {
 	display: flex;
 	justify-content: center;
-	background-color: white;
+	background-color: var(--COLOR-WHITE);
 	border-radius: 4px;
 	overflow: hidden;
 	height: 4rem;
@@ -102,18 +102,18 @@
 	.search_on_mobile {
 		display: flex;
 		justify-content: center;
-		background-color: white;
 		border-radius: 4px;
 		overflow: hidden;
-		height: 4.2rem;
+		height: 4.5rem;
 		width: 100%;
-		margin: 1rem;
+		padding: 0 1rem;
 		top: 8rem;
 		position: sticky;
 		z-index: var(--z-index-4);
 	}
 
-	.search_box .input_box {
+	.search_on_mobile .input_box {
 		width: 100%;
+		background-color: var(--COLOR-BG);
 	}
 }

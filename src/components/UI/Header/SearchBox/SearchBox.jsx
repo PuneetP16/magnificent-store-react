@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFilter } from "../../../../contexts";
 import "./SearchBox.css";
 
 export const SearchBox = () => {
+	const { filterDispatch, initialFilterState } = useFilter();
 	const [query, setQuery] = useState("");
 	const navigate = useNavigate();
 
@@ -10,10 +12,23 @@ export const SearchBox = () => {
 		setQuery(e.target.value);
 	};
 
+	useEffect(() => {
+		if (query) {
+			filterDispatch({ type: "SEARCH", payload: query });
+		} else {
+			filterDispatch({ type: "RESET", payload: initialFilterState });
+		}
+	}, [filterDispatch, query]);
+
 	const passQuery = (e) => {
 		e.preventDefault();
-		navigate(`/productlisting/search?query=${query}`);
-		setQuery("");
+		if (query) {
+			navigate(`/productListing/search?query=${query}`);
+			setQuery("");
+		} else {
+			navigate("/productListing");
+			setQuery("");
+		}
 	};
 
 	return (
