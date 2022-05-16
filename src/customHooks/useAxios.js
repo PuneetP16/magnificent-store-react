@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Toast } from "../components/UI/Toast/Toast";
 import { useAuth, useLoader } from "../contexts";
 
 export const useAxios = () => {
@@ -21,7 +22,7 @@ export const useAxios = () => {
 				toggleLoader();
 			}
 		} catch (error) {
-			console.error(error.message);
+			Toast("error", error.message);
 			toggleLoader();
 		}
 		return { output };

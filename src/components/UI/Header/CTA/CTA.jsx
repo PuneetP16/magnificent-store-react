@@ -3,6 +3,7 @@ import { ThemeToggle } from "../../../../components";
 import { Link } from "react-router-dom";
 import { useAuth, useCart, useWishlist } from "../../../../contexts";
 import { useLocation } from "react-router-dom";
+import { Toast } from "../../Toast/Toast";
 
 export const CTA = () => {
 	const { isAuth, toggleAuth } = useAuth();
@@ -15,6 +16,8 @@ export const CTA = () => {
 		if (isAuth) {
 			localStorage.removeItem("storeToken");
 			toggleAuth();
+			Toast("success", "Successfully logged out");
+
 		}
 	};
 

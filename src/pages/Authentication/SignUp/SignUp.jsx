@@ -6,6 +6,7 @@ import {
 	Alert,
 	InputTypeTwo,
 } from "../../../components";
+import { Toast } from "../../../components/UI/Toast/Toast";
 import { useUser } from "../../../contexts";
 import { useDocumentTitle } from "../../../customHooks";
 import { signUp } from "../../../services";
@@ -20,12 +21,6 @@ export const SignUp = () => {
 		password: "",
 		consent: "	",
 	};
-
-	const [alert, setAlert] = useState({
-		visibility: false,
-		text: "",
-		type: "",
-	});
 
 	const [isVisible, setIsVisible] = useState(false);
 	const [signUpData, setSignUpData] = useState(initialSignUpData);
@@ -62,19 +57,16 @@ export const SignUp = () => {
 				dispatch,
 			});
 		} else {
-			setAlert((a) => ({
-				...a,
-				visibility: true,
-				text: "Minimum 8 char, 1 Uppercase, 1 Lowercase, 1 number & 1 Special Character required",
-				type: "alert--danger",
-			}));
+			Toast(
+				"info",
+				"Minimum 8 char, 1 Uppercase, 1 Lowercase, 1 number & 1 Special Character required"
+			);
 		}
 	};
 
 	return (
 		<main>
 			<div className="center">
-				<Alert alert={alert} setAlert={setAlert} />
 				<form onSubmit={onSubmitHandler} className="form flex" method="get">
 					<h2 className="h3">Sign Up</h2>
 					<InputTypeOne

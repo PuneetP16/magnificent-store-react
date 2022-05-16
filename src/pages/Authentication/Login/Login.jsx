@@ -19,12 +19,6 @@ export const Login = () => {
 
 	const { toggleAuth } = useAuth();
 
-	const [alert, setAlert] = useState({
-		visibility: false,
-		text: "",
-		type: "",
-	});
-
 	const [rememberMe, setRememberMe] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
 	const { loader, toggleLoader } = useLoader();
@@ -52,7 +46,6 @@ export const Login = () => {
 			initialFormState,
 			toggleAuth,
 			navigate,
-			setAlert,
 			rememberMe,
 			toggleLoader,
 		});
@@ -61,7 +54,6 @@ export const Login = () => {
 	return (
 		<main>
 			<div className="center">
-				<Alert alert={alert} setAlert={setAlert} />
 				<form onSubmit={onSubmitHandler} className="form flex" method="get">
 					<h2 className="h3">Login</h2>
 					<InputTypeOne
