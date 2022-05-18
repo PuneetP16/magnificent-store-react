@@ -7,12 +7,13 @@ import {
 	InputTypeTwo,
 	Loader,
 } from "../../../components";
-import { useUser, useAuth, useLoader } from "../../../contexts";
+import { useUser, useAuth, useLoader, useTheme } from "../../../contexts";
 import { useDocumentTitle } from "../../../customHooks";
 import { signIn } from "../../../services";
 import "./Login.css";
 
 export const Login = () => {
+	const { theme } = useTheme();
 	useDocumentTitle("Login | MS");
 	const navigate = useNavigate();
 	const { loginData, userData, dispatch, initialFormState } = useUser();
@@ -48,6 +49,7 @@ export const Login = () => {
 			navigate,
 			rememberMe,
 			toggleLoader,
+			theme,
 		});
 	};
 

@@ -8,3 +8,5 @@ export { Filters } from "./ProductListing/Filters/Filters";
 export { ProductListing } from "./ProductListing/ProductListing";
 export { NotFound } from "./404/404";
 export { BillingCard } from "./Cart/BillingCard/BillingCard";
+export { Checkout } from "./Checkout/Checkout";
+export { NewAddress } from "./Checkout/Address/NewAddress/NewAddress";

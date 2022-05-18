@@ -9,6 +9,7 @@ export const signIn = async ({
 	toggleAuth,
 	rememberMe,
 	toggleLoader,
+	theme,
 }) => {
 	try {
 		toggleLoader();
@@ -17,7 +18,7 @@ export const signIn = async ({
 		if (res.status === 200) {
 			localStorage.setItem("storeToken", res.data.encodedToken);
 			toggleAuth();
-			Toast("success", "Successfully logged in");
+			Toast("success", "Successfully logged in", theme);
 			const currentUserData = {
 				loginData: { ...loginData },
 				userData: {
@@ -49,13 +50,13 @@ export const signIn = async ({
 		}
 
 		if (res.status === 201) {
-			Toast("error", "Invalid Password, Try Again");
+			Toast("error", "Invalid Password, Try Again", theme);
 
 			toggleLoader();
 			return;
 		}
 	} catch (error) {
-		console.log(error, "Invalid Credentials");
+		Toast("error", error.message, theme);
 		let msg = JSON.stringify(error);
 
 		let parsedMsg = JSON.parse(msg);
@@ -64,7 +65,7 @@ export const signIn = async ({
 				? "Email Address doesn't Exist, Please Signup"
 				: "Server Error, Try Again";
 
-		Toast("error", alertText);
+		Toast("error", alertText, theme);
 
 		toggleLoader();
 	}

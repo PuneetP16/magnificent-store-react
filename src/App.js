@@ -13,6 +13,7 @@ import {
 	Wishlist,
 	ProductListing,
 	NotFound,
+	Checkout,
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 
@@ -23,7 +24,7 @@ function App() {
 
 	return (
 		<>
-			<ToastContainer />
+			<ToastContainer className="toast__position" />
 
 			<div className="App body">
 				{pathname !== "/pagenotfound" && <Header />}
@@ -43,6 +44,7 @@ function App() {
 					<Route path="/loader" element={<Loader />} />
 					<Route path="/wishlist" element={<Wishlist />} />
 					<Route path="/cart" element={<Cart />} />
+					<Route path="/checkout" element={<Checkout />} />
 					<Route path="/productlisting" element={<ProductListing />} />
 					<Route path="/productlisting/search" element={<ProductListing />} />
 					<Route path="/pagenotfound" element={<NotFound />} />

@@ -9,7 +9,7 @@ export const Cart = () => {
 	useDocumentTitle("Cart | MS");
 	const { cart, totalQty, cartDispatch } = useCart();
 	const { loader } = useLoader();
-
+	console.log(cart);
 	return (
 		<div className="cart_page_wrapperd">
 			{loader && <Loader />}
@@ -25,12 +25,10 @@ export const Cart = () => {
 				{cart.length === 0 && (
 					<section className="cart__section items_container">
 						<div className="cart--empty h3">
-							<div className="cart--empty__head">Cart Empty!</div>
-							<div className="cart--empty__content">
-								Grab the products to cart
-							</div>
-							<Link className="link underline" to="/productlisting">
-								➡️ From HERE..
+							<div className="h4">No items in Cart</div>
+							<div className="h4">Grab items from product page</div>
+							<Link className="btn btn--outline--primary" to="/productlisting">
+								➡️ CLICK ME
 							</Link>
 						</div>
 					</section>

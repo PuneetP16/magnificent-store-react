@@ -1,6 +1,7 @@
 html[current_theme="light"] {
 	--COLOR-BG: #e6f0ff;
 	--COLOR-TXT: #000000;
+	--COLOR-TXT-OPP: white;
 	--COLOR-TXT-PRIMARY: #2255a4;
 	--COLOR-PRIMARY-THEME: #2255a4;
 	--COLOR-PRIMARY-OPP: white;
@@ -8,14 +9,24 @@ html[current_theme="light"] {
 	--COLOR-CARD-BG: white;
 	--COLOR-PRIMARY-DARK: #e6f0ff;
 	--COLOR-CARD-BOX-SHADOW0: rgb(0 0 0 / 20%);
-    --COLOR-CARD-BOX-SHADOW1: rgba(0, 0, 0, 0.56);
-    --COLOR-CARD-BOX-SHADOW2: #32325d1a;
-    --COLOR-CARD-BOX-SHADOW3: #324dc549;
+	--COLOR-CARD-BOX-SHADOW1: rgba(0, 0, 0, 0.56);
+	--COLOR-CARD-BOX-SHADOW1: #0000001f;
+	--COLOR-CARD-BOX-SHADOW2: #32325d1a;
+	--COLOR-CARD-BOX-SHADOW3: #324dc549;
+
+	/* Accordian */
+	--COLOR-BG-DETAILS: #ffffff;
+	--COLOR-BG-HOVER-DETAILS: rgba(193, 188, 188, 0.26);
+
+	/* Address Card */
+	--COLOR-BG-ADDRESS-CARD: #c2d8fa;
+	--COLOR-BG-HOVER-ADDRESS-CARD: #e6f0ff;
 }
 
 html[current_theme="dark"] {
 	--COLOR-BG: #172842;
 	--COLOR-TXT: white;
+	--COLOR-TXT-OPP: #000000;
 	--COLOR-TXT-PRIMARY: #c6ddff;
 	--COLOR-PRIMARY-THEME: white;
 	--COLOR-PRIMARY-OPP: #2255a4;
@@ -23,7 +34,16 @@ html[current_theme="dark"] {
 	--COLOR-CARD-BG: #0c1e3a;
 	--COLOR-PRIMARY-DARK: #163d77;
 	--COLOR-CARD-BOX-SHADOW0: rgb(0 0 0 / 20%);
-    --COLOR-CARD-BOX-SHADOW1: #ccd9faa9;
-    --COLOR-CARD-BOX-SHADOW2: #32325d1a;
-    --COLOR-CARD-BOX-SHADOW3: #324dc549;
+	--COLOR-CARD-BOX-SHADOW1: #ccd9faa9;
+	--COLOR-CARD-BOX-SHADOW1: #4b536766;
+	--COLOR-CARD-BOX-SHADOW2: #32325d1a;
+	--COLOR-CARD-BOX-SHADOW3: #324dc549;
+
+	/* Accordian */
+	--COLOR-BG-DETAILS: #264e7f;
+	--COLOR-BG-HOVER-DETAILS: #2d5c95;
+
+	/* Address Card */
+	--COLOR-BG-ADDRESS-CARD: #2b569c;
+	--COLOR-BG-HOVER-ADDRESS-CARD: #1a4c97;
 }

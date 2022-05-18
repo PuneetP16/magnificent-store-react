@@ -1,0 +1,60 @@
+.address__section {
+	background-color: var(--COLOR-PRIMARY-DARK);
+	box-shadow: 0 5px 10px var(--COLOR-CARD-BOX-SHADOW0),
+		0 3px 1px -2px var(--COLOR-BOX-SHADOW1), 0 2px 2px var(--COLOR-BOX-SHADOW2),
+		0 1px 5px var(--COLOR-BOX-SHADOW3);
+	padding: 2rem 3rem;
+	border-radius: 8px;
+	min-width: 30rem;
+	margin: 5px;
+	color: var(--COLOR-BLACK);
+}
+
+.address__section .form {
+    padding: 0;
+    box-shadow: none;
+    margin: 1rem 0;
+}
+
+.address__section .h3 {
+	color: var(--COLOR-BLACK);
+}
+
+.address__header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.address__section .btn--dismiss {
+	border: none;
+	font-size: 1rem;
+	padding: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--COLOR-PRIMARY);
+	color: var(--COLOR-WHITE);
+	transition: background-color 30ms ease-in;
+}
+
+.address__section .btn--dismiss:hover {
+	background-color: var(--COLOR-PRIMARY);
+}
+
+.address__section .btn--dismiss i {
+	font-size: 2rem;
+}
+
+.save_address__btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+	transition: background-color 0.1 ease-in;
+}
+
+.save_address__btn .btn {
+	padding: 5px 4rem;
+}

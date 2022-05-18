@@ -7,7 +7,7 @@ import {
 	InputTypeTwo,
 } from "../../../components";
 import { Toast } from "../../../components/UI/Toast/Toast";
-import { useUser } from "../../../contexts";
+import { useTheme, useUser } from "../../../contexts";
 import { useDocumentTitle } from "../../../customHooks";
 import { signUp } from "../../../services";
 import "./SignUp.css";
@@ -21,6 +21,7 @@ export const SignUp = () => {
 		password: "",
 		consent: "	",
 	};
+	const { theme } = useTheme();
 
 	const [isVisible, setIsVisible] = useState(false);
 	const [signUpData, setSignUpData] = useState(initialSignUpData);
@@ -55,11 +56,13 @@ export const SignUp = () => {
 				loginData,
 				userData,
 				dispatch,
+				theme,
 			});
 		} else {
 			Toast(
 				"info",
-				"Minimum 8 char, 1 Uppercase, 1 Lowercase, 1 number & 1 Special Character required"
+				"Minimum 8 char, 1 Uppercase, 1 Lowercase, 1 number & 1 Special Character required",
+				theme
 			);
 		}
 	};

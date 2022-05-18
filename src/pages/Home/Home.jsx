@@ -17,7 +17,7 @@ export const Home = () => {
 				<section className="homepage__section categories">
 					<h2 className="h2 section__heading">Product Categories</h2>
 
-					<ul className="categories__items">
+					<ul className="categories__items cart__listing">
 						<CategoryListing categories={categoryList} />
 					</ul>
 				</section>

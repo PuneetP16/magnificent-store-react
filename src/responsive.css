@@ -26,7 +26,8 @@
 		padding-bottom: 2rem;
 	}
 
-	body .main--cart {
+	body .main--cart,
+	body .main--checkout {
 		display: flex;
 		flex-flow: column nowrap;
 		padding: 1rem 2rem;
@@ -35,6 +36,8 @@
 	body .billing_section {
 		max-width: 95vw;
 		width: 35rem;
+		margin: auto;
+		margin-top: 0;
 	}
 
 	body button {
