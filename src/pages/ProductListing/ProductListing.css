@@ -194,7 +194,7 @@
 .filter__icon {
 	display: none;
 	position: fixed;
-	top: 13rem;
+	top: 13.2rem;
 	left: 1rem;
 	z-index: var(--z-index-2);
 }

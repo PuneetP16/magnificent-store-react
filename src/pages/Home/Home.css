@@ -7,7 +7,7 @@
 	display: grid;
 	min-height: 100vh;
 	grid-template-columns: 1fr;
-	grid-template-rows: 7rem 1fr 5rem;
+	grid-template-rows: 6rem 1fr 4rem;
 	grid-template-areas:
 		"header"
 		"main"
@@ -113,7 +113,7 @@ body .btn {
 			"main"
 			"footer";
 		grid-template-columns: 1fr;
-		grid-template-rows: 7rem 5rem 1fr 5rem;
+		grid-template-rows: 6rem 5rem 1fr 4rem;
 		height: auto;
 	}
 

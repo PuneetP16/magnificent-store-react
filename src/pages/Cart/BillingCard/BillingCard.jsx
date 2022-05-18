@@ -27,7 +27,7 @@ export const BillingCard = ({ orderDetails, isAddress, setIsAddress }) => {
 			resetCart(axiosRequest, initialCartState);
 			navigate("/");
 			setIsAddress(false);
-			Toast("success", "Items successfully purchased, Go for more", theme);
+			Toast("success", "Items purchased successfully, Go for more", theme);
 		}, 2000);
 	};
 

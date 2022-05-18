@@ -47,7 +47,7 @@
 	body .main--homepage {
 		display: flex;
 		flex-flow: column nowrap;
-		padding: 1rem 2rem;
+		padding: 3rem 2rem;
 	}
 
 	body .categories__items {
@@ -71,7 +71,7 @@
 			"nav"
 			"main";
 		grid-template-columns: 1fr;
-		grid-template-rows: 7rem 5rem 1fr 5rem;
+		grid-template-rows: 6rem 5rem 1fr 4rem;
 		height: auto;
 	}
 
