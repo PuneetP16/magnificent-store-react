@@ -89,7 +89,7 @@ export const Checkout = () => {
 										/>
 									))}
 							</ul>
-							<div>
+							<div className="addresses_actions">
 								<button
 									className="btn btn--outline--primary address__add_Btn"
 									onClick={openAddressModal}

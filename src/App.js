@@ -24,8 +24,7 @@ function App() {
 
 	return (
 		<>
-			<ToastContainer className="toast__position" />
-
+			<ToastContainer />
 			<div className="App body">
 				{pathname !== "/pagenotfound" && <Header />}
 				<SearchBoxMobile />
