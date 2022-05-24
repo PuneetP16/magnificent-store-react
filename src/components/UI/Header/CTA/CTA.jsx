@@ -1,13 +1,15 @@
 import "./CTA.css";
 import { ThemeToggle } from "../../../../components";
 import { Link } from "react-router-dom";
-import { useAuth, useCart, useWishlist } from "../../../../contexts";
+import { useAuth, useCart, useTheme, useWishlist } from "../../../../contexts";
 import { useLocation } from "react-router-dom";
+import { Toast } from "../../Toast/Toast";
 
 export const CTA = () => {
 	const { isAuth, toggleAuth } = useAuth();
 	const { totalQty: cartTotalQty } = useCart();
 	const { totalQty: wishlistTotalQty } = useWishlist();
+	const { theme } = useTheme();
 
 	const { pathname } = useLocation();
 
@@ -15,6 +17,7 @@ export const CTA = () => {
 		if (isAuth) {
 			localStorage.removeItem("storeToken");
 			toggleAuth();
+			Toast("success", "Successfully logged out", theme);
 		}
 	};
 

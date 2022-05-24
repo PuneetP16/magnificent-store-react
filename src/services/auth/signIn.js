@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Toast } from "../../components/UI/Toast/Toast";
 
 export const signIn = async ({
 	loginData,
@@ -6,9 +7,9 @@ export const signIn = async ({
 	dispatch,
 	initialFormState,
 	toggleAuth,
-	setAlert,
 	rememberMe,
 	toggleLoader,
+	theme,
 }) => {
 	try {
 		toggleLoader();
@@ -17,7 +18,7 @@ export const signIn = async ({
 		if (res.status === 200) {
 			localStorage.setItem("storeToken", res.data.encodedToken);
 			toggleAuth();
-			console.log(res);
+			Toast("success", "Successfully logged in", theme);
 			const currentUserData = {
 				loginData: { ...loginData },
 				userData: {
@@ -49,17 +50,13 @@ export const signIn = async ({
 		}
 
 		if (res.status === 201) {
-			setAlert((a) => ({
-				...a,
-				text: "Invalid Password, Try Again",
-				type: "alert--danger",
-				visibility: true,
-			}));
+			Toast("error", "Invalid Password, Try Again", theme);
+
 			toggleLoader();
 			return;
 		}
 	} catch (error) {
-		console.log(error, "Invalid Credentials");
+		Toast("error", error.message, theme);
 		let msg = JSON.stringify(error);
 
 		let parsedMsg = JSON.parse(msg);
@@ -68,12 +65,8 @@ export const signIn = async ({
 				? "Email Address doesn't Exist, Please Signup"
 				: "Server Error, Try Again";
 
-		setAlert((a) => ({
-			...a,
-			text: alertText,
-			type: "alert--danger",
-			visibility: true,
-		}));
+		Toast("error", alertText, theme);
+
 		toggleLoader();
 	}
 };

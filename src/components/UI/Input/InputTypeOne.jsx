@@ -12,6 +12,7 @@ export const InputTypeOne = (props) => {
 		onChange,
 		value,
 	} = props;
+	
 	return (
 		<div className={wrapperClassName}>
 			<label htmlFor={htmlFor} className={labelClassName}>

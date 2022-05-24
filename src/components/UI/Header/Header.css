@@ -11,7 +11,7 @@
 	position: sticky;
 	top: 0;
 	background-color: var(--COLOR-BG);
-	z-index: 999;
+	z-index: var(--z-index-3);
 }
 
 /* header--nav--actions  */
@@ -49,11 +49,15 @@
 	background-color: transparent;
 	box-shadow: none;
 	padding: none;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 5px;
 }
 
 .header__links:hover,
 .brand__text:hover {
-	color: var(--COLOR-PRIMARY);
+	color: var(--COLOR-PRIMARY-THEME);
 }
 
 .header__links:active {
@@ -64,8 +68,15 @@
 	cursor: pointer;
 	font-size: 3rem;
 	font-weight: 500;
-	width: fit-content;
-	color: var(--COLOR-TXT);
+	min-width: fit-content;
+	color: var(--COLOR-PRIMARY-THEME);
+	letter-spacing: 1.2px;
+}
+
+.logo__img {
+	display: inline-block;
+	cursor: pointer;
+	height: 2.5rem;
 }
 
 /* Search BOX  */

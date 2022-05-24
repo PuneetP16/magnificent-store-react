@@ -1,0 +1,40 @@
+.card--overview {
+	grid-gap: 5rem;
+	color: var(--COLOR-TXT);
+}
+
+.card--overview:hover {
+	box-shadow: none;
+}
+
+.card--overview .card__content {
+	gap: 1.5rem;
+	cursor: default;
+}
+
+.card--overview .card__body--overview {
+	padding: 20px 20px 10px 0;
+}
+
+.product__image--overview {
+	width: auto;
+	height: 12rem;
+}
+
+.card__body--overview {
+	display: flex;
+	justify-content: left;
+	text-align: left;
+	flex-flow: column wrap;
+	gap: 1rem;
+}
+
+.card__body--overview .card__quantity {
+	font-weight: 500;
+	font-size: 1.4rem;
+}
+
+.overview__card_header {
+	text-align: left;
+	font-size: 1.7rem;
+}

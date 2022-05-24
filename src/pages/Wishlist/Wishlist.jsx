@@ -8,12 +8,6 @@ export const Wishlist = () => {
 	useDocumentTitle("Wishlist | MS");
 	const { wishlist, totalQty } = useWishlist();
 
-	// useEffect(() => {
-	// 	(async () => {
-	// 		getUpdatedWishlist(axiosRequest);
-	// 	})();
-	// }, []);
-
 	return (
 		<div className="wishlist_page_wrapper">
 			<main className="main main--wishlist">

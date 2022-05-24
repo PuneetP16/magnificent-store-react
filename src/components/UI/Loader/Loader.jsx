@@ -1,10 +1,5 @@
 import "./Loader.css";
-import {
-	ballLoader,
-	ballLoaderwp,
-	primaryBallLoader,
-	primaryLoader,
-} from "../../../data/image/productImages";
+import { primaryLoader } from "../../../data/image/productImages";
 
 export const Loader = () => {
 	return (

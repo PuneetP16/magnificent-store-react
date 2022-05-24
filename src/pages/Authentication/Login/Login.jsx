@@ -7,23 +7,18 @@ import {
 	InputTypeTwo,
 	Loader,
 } from "../../../components";
-import { useUser, useAuth, useLoader } from "../../../contexts";
+import { useUser, useAuth, useLoader, useTheme } from "../../../contexts";
 import { useDocumentTitle } from "../../../customHooks";
 import { signIn } from "../../../services";
 import "./Login.css";
 
 export const Login = () => {
+	const { theme } = useTheme();
 	useDocumentTitle("Login | MS");
 	const navigate = useNavigate();
 	const { loginData, userData, dispatch, initialFormState } = useUser();
 
 	const { toggleAuth } = useAuth();
-
-	const [alert, setAlert] = useState({
-		visibility: false,
-		text: "",
-		type: "",
-	});
 
 	const [rememberMe, setRememberMe] = useState(false);
 	const [isVisible, setIsVisible] = useState(false);
@@ -52,16 +47,15 @@ export const Login = () => {
 			initialFormState,
 			toggleAuth,
 			navigate,
-			setAlert,
 			rememberMe,
 			toggleLoader,
+			theme,
 		});
 	};
 
 	return (
 		<main>
 			<div className="center">
-				<Alert alert={alert} setAlert={setAlert} />
 				<form onSubmit={onSubmitHandler} className="form flex" method="get">
 					<h2 className="h3">Login</h2>
 					<InputTypeOne

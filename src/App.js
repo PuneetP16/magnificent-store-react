@@ -13,7 +13,9 @@ import {
 	Wishlist,
 	ProductListing,
 	NotFound,
+	Checkout,
 } from "./pages";
+import { ToastContainer } from "react-toastify";
 
 function App() {
 	const { pathname } = useLocation();
@@ -21,34 +23,38 @@ function App() {
 	const { loader } = useLoader();
 
 	return (
-		<div className="App body">
-			{pathname !== "/pagenotfound" && <Header />}
-			<SearchBoxMobile />
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/mockbee" element={<MockBee />} />
-				<Route path="/mockman" element={<MockAPI />} />
-				<Route
-					path="/login"
-					element={isAuth ? <Navigate to="/" replace /> : <Login />}
-				/>
-				<Route
-					path="/signup"
-					element={isAuth ? <Navigate to="/" replace /> : <SignUp />}
-				/>
-				<Route path="/loader" element={<Loader />} />
-				<Route path="/wishlist" element={<Wishlist />} />
-				<Route path="/cart" element={<Cart />} />
-				<Route path="/productlisting" element={<ProductListing />} />
-				<Route path="/productlisting/search" element={<ProductListing />} />
-				<Route path="/pagenotfound" element={<NotFound />} />
-				<Route path="*" element={<Navigate to="/pagenotfound" replace />} />
-			</Routes>
-			{(pathname !== "/pagenotfound" || (pathname !== "/login" && loader)) && (
-				<Footer />
-			)}
-			{loader && <Loader />}
-		</div>
+		<>
+			<ToastContainer className="toast__position" />
+
+			<div className="App body">
+				{pathname !== "/pagenotfound" && <Header />}
+				<SearchBoxMobile />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/mockbee" element={<MockBee />} />
+					<Route path="/mockman" element={<MockAPI />} />
+					<Route
+						path="/login"
+						element={isAuth ? <Navigate to="/" replace /> : <Login />}
+					/>
+					<Route
+						path="/signup"
+						element={isAuth ? <Navigate to="/" replace /> : <SignUp />}
+					/>
+					<Route path="/loader" element={<Loader />} />
+					<Route path="/wishlist" element={<Wishlist />} />
+					<Route path="/cart" element={<Cart />} />
+					<Route path="/checkout" element={<Checkout />} />
+					<Route path="/productlisting" element={<ProductListing />} />
+					<Route path="/productlisting/search" element={<ProductListing />} />
+					<Route path="/pagenotfound" element={<NotFound />} />
+					<Route path="*" element={<Navigate to="/pagenotfound" replace />} />
+				</Routes>
+				{(pathname !== "/pagenotfound" ||
+					(pathname !== "/login" && loader)) && <Footer />}
+				{loader && <Loader />}
+			</div>
+		</>
 	);
 }
 

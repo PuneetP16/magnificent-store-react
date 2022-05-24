@@ -38,7 +38,6 @@ export const ProductProvider = ({ children }) => {
 
 	useEffect(() => {
 		(async () => {
-			console.log("from home useEffect");
 			const fetchProductsURL = "/api/products";
 			const { output } = await axiosRequest({
 				method: "GET",

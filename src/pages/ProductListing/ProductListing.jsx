@@ -77,8 +77,6 @@ export const ProductListing = () => {
 		}
 	};
 
-	// const selectedList = searchedProductList ? searchedProductList : productList;
-
 	let filteredList = categoryFilter(productList, category);
 	filteredList = ratingFilter(filteredList, rating);
 	filteredList = priceFilter(filteredList, priceRange);

@@ -77,17 +77,17 @@
 }
 
 .filter .filter__header .h5 {
-	color: var(--COLOR-PRIMARY-THEME);
+	color: var(--COLOR-TXT);
 }
 
 .filter__section .filter__head {
 	margin-bottom: 8px;
-	color: var(--COLOR-PRIMARY-THEME);
+	color: var(--COLOR-TXT);
 }
 
 .filter__head {
 	font-weight: 500;
-	color: var(--COLOR-PRIMARY-THEME);
+	color: var(--COLOR-TXT);
 }
 
 .filter--reset {
@@ -194,7 +194,7 @@
 .filter__icon {
 	display: none;
 	position: fixed;
-	top: 13rem;
+	top: 13.2rem;
 	left: 1rem;
 	z-index: var(--z-index-2);
 }
@@ -231,8 +231,4 @@
 	bottom: 3rem;
 	right: 1.5rem;
 	z-index: var(--z-index-2);
-}
-
-body .modal_container {
-	backdrop-filter: blur(0px);
 }

@@ -15,3 +15,7 @@ export { Rating } from "./Rating/Rating";
 export { ProductCard } from "./Card/ProductCard/ProductCard";
 export { CategoryCard } from "../components/Card/CategoryCard/CategoryCard";
 export { HorizontalCard } from "./Card/HorizontalCard/HorizontalCard";
+export { OverviewCard } from "./Card/OverviewCard/OverviewCard";
+export { Modal } from "./UI/Modal/Modal";
+export { Accordian } from "./Accordian/Accordian";
+export { AddressCard } from "./Card/AddressCard/AddressCard";

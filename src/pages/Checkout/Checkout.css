@@ -1,0 +1,40 @@
+.main--checkout {
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 2rem;
+	grid-gap: 3rem;
+	gap: 3rem;
+	/* color: var(--COLOR-TXT); */
+}
+
+.checkout__wrapper {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-evenly;
+	grid-gap: 1rem;
+	gap: 1rem;
+}
+
+.details ul {
+	margin-top: 1rem;
+}
+
+.cart--empty .btn {
+	padding: 8px;
+	font-size: 1.8rem;
+}
+
+
+
+@media only screen and (max-width: 780px) {
+	.checkout__wrapper {
+		display: flex;
+		flex-flow: column nowrap;
+	}
+}
+
+@media only screen and (max-width: 520px) {
+	.addresses {
+		justify-content: center;
+	}
+}

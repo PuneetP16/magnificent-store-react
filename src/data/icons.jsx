@@ -20,4 +20,6 @@ export const bxIcons = {
 	sun: <i className="bx bxs-sun"></i>,
 	rightArrow: <i className="bx bx-right-arrow-alt"></i>,
 	filterAlt: <i className="bx bx-filter-alt"></i>,
+	checkedCircle: <i className="bx bxs-check-circle"></i>,
+	checkCircle: <i className="bx bx-check-circle"></i>,
 };

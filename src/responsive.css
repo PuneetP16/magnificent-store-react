@@ -26,7 +26,8 @@
 		padding-bottom: 2rem;
 	}
 
-	body .main--cart {
+	body .main--cart,
+	body .main--checkout {
 		display: flex;
 		flex-flow: column nowrap;
 		padding: 1rem 2rem;
@@ -35,6 +36,8 @@
 	body .billing_section {
 		max-width: 95vw;
 		width: 35rem;
+		margin: auto;
+		margin-top: 0;
 	}
 
 	body button {
@@ -44,7 +47,7 @@
 	body .main--homepage {
 		display: flex;
 		flex-flow: column nowrap;
-		padding: 1rem 2rem;
+		padding: 3rem 2rem;
 	}
 
 	body .categories__items {
@@ -68,7 +71,7 @@
 			"nav"
 			"main";
 		grid-template-columns: 1fr;
-		grid-template-rows: 7rem 5rem 1fr 5rem;
+		grid-template-rows: 6rem 5rem 1fr 4rem;
 		height: auto;
 	}
 

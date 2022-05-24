@@ -11,6 +11,7 @@ import {
 import { BrowserRouter } from "react-router-dom";
 import { ProductProvider } from "./productContext";
 import { ScrollToTopProvider } from "./scrollToTopContext";
+import { ModalProvider } from "./modalContext";
 
 const MagnificentContext = createContext();
 
@@ -21,23 +22,25 @@ export const MagnificentProvider = ({ children }) => {
 	return (
 		<MagnificentContext.Provider value={value}>
 			<BrowserRouter>
-				<LoaderProvider>
-					<AuthProvider>
-						<UserProvider>
-							<ProductProvider>
-								<WishlistProvider>
-									<CartProvider>
-										<FilterProvider>
-											<ScrollToTopProvider>
-												<ThemeProvider>{children}</ThemeProvider>
-											</ScrollToTopProvider>
-										</FilterProvider>
-									</CartProvider>
-								</WishlistProvider>
-							</ProductProvider>
-						</UserProvider>
-					</AuthProvider>
-				</LoaderProvider>
+				<ThemeProvider>
+					<LoaderProvider>
+						<ModalProvider>
+							<AuthProvider>
+								<UserProvider>
+									<ProductProvider>
+										<WishlistProvider>
+											<CartProvider>
+												<FilterProvider>
+													<ScrollToTopProvider>{children}</ScrollToTopProvider>
+												</FilterProvider>
+											</CartProvider>
+										</WishlistProvider>
+									</ProductProvider>
+								</UserProvider>
+							</AuthProvider>
+						</ModalProvider>
+					</LoaderProvider>
+				</ThemeProvider>
 			</BrowserRouter>
 		</MagnificentContext.Provider>
 	);

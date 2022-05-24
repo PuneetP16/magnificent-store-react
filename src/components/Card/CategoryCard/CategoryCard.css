@@ -12,6 +12,10 @@
 	top: 55%;
 	position: absolute;
 	width: 100%;
-	z-index: 3;
+	z-index: var(--z-index-2);
 	color: var(--COLOR-WHITE);
+}
+
+.cart__listing {
+	justify-content: center;
 }

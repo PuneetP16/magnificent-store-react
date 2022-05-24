@@ -49,18 +49,4 @@ export const categories = [
 			"A cricket shoe is usually made up of an artificial leather known as PU or polyurethane. It is extremely soft and flexible to ensure the free movement of the feet.",
 		src: bags,
 	},
-	// {
-	// 	_id: uuid(),
-	// 	categoryName: "clothes",
-	// 	description:
-	// 		"Cricket clothes are mostly the loose fitting clothes which are worn while playing cricket so as not to restrict the player's movement. ",
-	// 	src: clothes,
-	// },
-	// {
-	// 	_id: uuid(),
-	// 	categoryName: "shoes",
-	// 	description:
-	// 		"A cricket shoe is usually made up of an artificial leather known as PU or polyurethane. It is extremely soft and flexible to ensure the free movement of the feet.",
-	// 	src: shoes,
-	// },
 ];

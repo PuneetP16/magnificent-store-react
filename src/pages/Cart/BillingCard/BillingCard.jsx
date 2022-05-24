@@ -1,25 +1,62 @@
-import { useCart } from "../../../contexts";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Toast } from "../../../components/UI/Toast/Toast";
+import { useCart, useLoader, useTheme } from "../../../contexts";
+import { useAxios } from "../../../customHooks";
 import "./BillingCard.css";
 
-export const BillingCard = () => {
-	const { cart, totalQty, productPrice, totalPrice } = useCart();
-
+export const BillingCard = ({ orderDetails, isAddress, setIsAddress }) => {
+	const {
+		cart,
+		totalQty,
+		productPrice,
+		totalPrice,
+		resetCart,
+		initialCartState,
+	} = useCart();
+	const { toggleLoader } = useLoader();
+	const { theme } = useTheme();
+	const { axiosRequest } = useAxios();
 	const { original, discount } = totalPrice;
+	const navigate = useNavigate();
+
+	const checkoutHandler = (e) => {
+		e.preventDefault();
+		toggleLoader();
+		setTimeout(() => {
+			toggleLoader();
+			resetCart(axiosRequest, initialCartState);
+			navigate("/");
+			setIsAddress(false);
+			Toast("success", "Items purchased successfully, Go for more", theme);
+		}, 2000);
+	};
+
 	return (
 		<aside className="aside--products billing_section">
 			<form action="post" className="bill_wrapper">
-				<h3 className="h5 bill__head">Price Details</h3>
+				<h3 className="h5 bill__head">
+					{orderDetails ? "Order Details" : "Price Details"}
+				</h3>
 				<hr />
 				<section className="bill__section">
 					<ul className="bill__items">
-						<li className="bill__list">
-							<div className="bill__item">
-								Price (<span>{totalQty}</span> items)
-							</div>
-							<div className="bill__item">
-								₹<span id="initial-total">{original}</span>
-							</div>
-						</li>
+						{!orderDetails ? (
+							<li className="bill__list">
+								<div className="bill__item">
+									Price (<span>{totalQty}</span> items)
+								</div>
+								<div className="bill__item">
+									₹<span id="initial-total">{original}</span>
+								</div>
+							</li>
+						) : (
+							<li className="bill__list">
+								<div className="bill__item">Total Items</div>
+								<div className="bill__item">
+									<span id="initial-total">{totalQty}</span>
+								</div>
+							</li>
+						)}
 						<li className="bill__list">
 							<div className="bill__item">Discount</div>
 							<div className="bill__item">
@@ -43,11 +80,23 @@ export const BillingCard = () => {
 				</ul>
 				<hr />
 				<div className="bill__description">
-					You will save ₹{discount} on this order
+					{orderDetails
+						? "Add/Select address to checkout the items"
+						: "You will save ₹{discount} on this order"}
 				</div>
-				<a className="bill__submit_btn btn btn--primary" href="#">
-					PLACE ORDER
-				</a>
+				{!orderDetails && (
+					<Link to="/checkout" className="bill__submit_btn btn btn--primary">
+						PLACE ORDER
+					</Link>
+				)}
+				{isAddress && orderDetails && (
+					<button
+						onClick={checkoutHandler}
+						className="bill__submit_btn btn btn--primary"
+					>
+						Checkout
+					</button>
+				)}
 			</form>
 		</aside>
 	);

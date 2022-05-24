@@ -1,2 +1,6 @@
 @import url("https://unpkg.com/mockman-js@latest/dist/style.css");
 @import url("https://magnificentui.netlify.app/src/magnificent.css");
+
+.toast__position {
+	bottom: 6rem;
+}
