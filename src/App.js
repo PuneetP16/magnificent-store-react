@@ -14,6 +14,7 @@ import {
 	ProductListing,
 	NotFound,
 	Checkout,
+	Order,
 } from "./pages";
 import { ToastContainer } from "react-toastify";
 
@@ -44,6 +45,7 @@ function App() {
 					<Route path="/wishlist" element={<Wishlist />} />
 					<Route path="/cart" element={<Cart />} />
 					<Route path="/checkout" element={<Checkout />} />
+					<Route path="/order" element={<Order />} />
 					<Route path="/productlisting" element={<ProductListing />} />
 					<Route path="/productlisting/search" element={<ProductListing />} />
 					<Route path="/pagenotfound" element={<NotFound />} />
