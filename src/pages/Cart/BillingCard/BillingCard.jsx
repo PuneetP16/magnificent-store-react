@@ -19,21 +19,64 @@ export const BillingCard = ({ orderDetails, isAddress, setIsAddress }) => {
 	const { original, discount } = totalPrice;
 	const navigate = useNavigate();
 
-	const checkoutHandler = (e) => {
-		e.preventDefault();
-		toggleLoader();
-		setTimeout(() => {
-			toggleLoader();
-			resetCart(axiosRequest, initialCartState);
-			navigate("/");
-			setIsAddress(false);
-			Toast("success", "Items purchased successfully, Go for more", theme);
-		}, 2000);
+	const loadScript = (src) => {
+		return new Promise((resolve) => {
+			const script = document.createElement("script");
+			script.src = src;
+			script.onload = () => {
+				resolve(true);
+			};
+			script.onerror = () => {
+				resolve(false);
+			};
+			document.body.appendChild(script);
+		});
+	};
+
+	const makePaymentHandler = async () => {
+		const amount = original - discount + 499;
+		const res = await loadScript(
+			"https://checkout.razorpay.com/v1/checkout.js"
+		);
+
+		if (!res) {
+			alert("Razorpay SDK failed to load. Are you online?");
+			return;
+		}
+
+		const options = {
+			key: process.env.REACT_APP_RAZORPAY_API, // Enter the Key ID generated from the Dashboard
+			currency: "INR",
+			amount: amount * 100,
+			name: "Magnificent Store",
+			description: "Thank you for shopping with Magnificent Store",
+			handler: async function (response) {
+				console.log(response);
+				if (!!response.razorpay_payment_id) {
+					resetCart(axiosRequest, initialCartState);
+				}
+				navigate("/");
+				Toast(
+					"success",
+					`Items purchased successfully with payment ID: ${response.razorpay_payment_id}`,
+					theme
+				);
+			},
+
+			prefill: {
+				name: "Magnificent Store",
+				email: "offer@magnificentstore.com",
+				contact: "9999999999",
+			},
+		};
+
+		const paymentObject = new window.Razorpay(options);
+		paymentObject.open();
 	};
 
 	return (
 		<aside className="aside--products billing_section">
-			<form action="post" className="bill_wrapper">
+			<section action="post" className="bill_wrapper">
 				<h3 className="h5 bill__head">
 					{orderDetails ? "Order Details" : "Price Details"}
 				</h3>
@@ -91,13 +134,13 @@ export const BillingCard = ({ orderDetails, isAddress, setIsAddress }) => {
 				)}
 				{isAddress && orderDetails && (
 					<button
-						onClick={checkoutHandler}
+						onClick={makePaymentHandler}
 						className="bill__submit_btn btn btn--primary"
 					>
 						Checkout
 					</button>
 				)}
-			</form>
+			</section>
 		</aside>
 	);
 };

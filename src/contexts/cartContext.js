@@ -16,12 +16,13 @@ export const CartProvider = ({ children }) => {
 			discount: 0,
 		},
 	};
-	const { theme } = useTheme();
 
 	const [{ cart, totalQty, totalPrice }, cartDispatch] = useReducer(
 		cartReducer,
 		initialCartState
 	);
+	
+	const { theme } = useTheme();
 
 	const addToCart = async (axiosRequest, prod) => {
 		try {

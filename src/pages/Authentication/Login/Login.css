@@ -48,6 +48,7 @@ a {
 .form__signup_btn {
 	width: 100%;
 }
+
 .form h2 {
 	align-self: center;
 }
@@ -129,10 +130,12 @@ a {
 	background-color: inherit;
 	color: inherit;
 }
+
 .form__actions .btn:hover {
 	box-shadow: none;
 	opacity: 1;
 }
+
 .form__actions .btn--link {
 	background: transparent;
 	border: none;

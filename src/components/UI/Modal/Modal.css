@@ -1,3 +1,7 @@
+:root {
+	--COLOR-BG-MODAL: rgba(0, 0, 0, 0.45);
+}
+
 .modal__wrapper {
 	position: fixed;
 	top: 50%;
@@ -7,7 +11,7 @@
 	transform: translate(-50%, -50%);
 	backdrop-filter: blur(2px);
 	z-index: var(--z-index-3);
-	background-color: rgba(0, 0, 0, 0.45);
+	background-color: var(--COLOR-BG-MODAL);
 }
 
 .modal__wrapper_center_child {

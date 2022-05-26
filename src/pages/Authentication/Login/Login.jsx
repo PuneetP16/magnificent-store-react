@@ -1,11 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import {
-	Alert,
 	InputTypeOne,
 	InputTypeThree,
 	InputTypeTwo,
-	Loader,
 } from "../../../components";
 import { useUser, useAuth, useLoader, useTheme } from "../../../contexts";
 import { useDocumentTitle } from "../../../customHooks";
