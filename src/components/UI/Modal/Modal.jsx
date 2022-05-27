@@ -11,7 +11,7 @@ export const Modal = ({ modalClass, children }) => {
 	return (
 		<div
 			className={`${
-				modalClass ? modalClass : "modal__wrapper"
+				modalClass ? modalClass : "modal__wrapper backdrop-blur"
 			} modal__wrapper_center_child`}
 			// onClick={hideModal} kept for development purpose
 		>

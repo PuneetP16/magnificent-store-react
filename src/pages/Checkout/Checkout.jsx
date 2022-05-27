@@ -52,23 +52,10 @@ export const Checkout = () => {
 					</h2>
 				</section>
 
-				{/* <!-- loadS if cart empty  --> */}
-				{cart.length === 0 && (
-					<section className="cart__section items_container">
-						<div className="cart--empty h3">
-							<div className="h4">No items to checkout</div>
-							<div className="h4">Grab items from product page</div>
-							<Link className="btn btn--outline--primary" to="/productlisting">
-								➡️ CLICK ME
-							</Link>
-						</div>
-					</section>
-				)}
-
-				<section className="checkout__wrapper items_container">
-					{/* <!-- --- CARDS SECTION---- --> */}
-					<div className="accordian__wrapper">
-						{cart.length !== 0 && (
+				{cart.length !== 0 && (
+					<section className="checkout__wrapper items_container">
+						{/* <!-- --- CARDS SECTION---- --> */}
+						<div className="accordian__wrapper">
 							<Accordian title="Items overview" icon={bxIcons.checkedCircle}>
 								<ul className="categories__items_cart">
 									{cart.map((prod) => (
@@ -76,38 +63,40 @@ export const Checkout = () => {
 									))}
 								</ul>
 							</Accordian>
+							<Accordian
+								title="Contact & Delivery Address"
+								icon={getCheckIcon()}
+							>
+								<ul className="addresses">
+									{addresses.length > 0 &&
+										addresses.map((address) => (
+											<AddressCard
+												key={address._id}
+												address={address}
+												setIsAddress={setIsAddress}
+											/>
+										))}
+								</ul>
+								<div className="addresses_actions">
+									<button
+										className="btn btn--outline--primary address__add_Btn"
+										onClick={openAddressModal}
+									>
+										Add new address
+									</button>
+								</div>
+							</Accordian>
+						</div>
+
+						{cart.length !== 0 && (
+							<BillingCard
+								orderDetails={true}
+								isAddress={isAddress}
+								setIsAddress={setIsAddress}
+							/>
 						)}
-
-						<Accordian title="Contact & Delivery Address" icon={getCheckIcon()}>
-							<ul className="addresses">
-								{addresses.length > 0 &&
-									addresses.map((address) => (
-										<AddressCard
-											key={address._id}
-											address={address}
-											setIsAddress={setIsAddress}
-										/>
-									))}
-							</ul>
-							<div className="addresses_actions">
-								<button
-									className="btn btn--outline--primary address__add_Btn"
-									onClick={openAddressModal}
-								>
-									Add new address
-								</button>
-							</div>
-						</Accordian>
-					</div>
-
-					{cart.length !== 0 && (
-						<BillingCard
-							orderDetails={true}
-							isAddress={isAddress}
-							setIsAddress={setIsAddress}
-						/>
-					)}
-				</section>
+					</section>
+				)}
 				{modal && (
 					<Modal>
 						<NewAddress />

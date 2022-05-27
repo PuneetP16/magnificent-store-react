@@ -27,7 +27,18 @@ export const CategoryCard = ({ prodCat }) => {
 					className="image--responsive"
 				/>
 			</Link>
-			<span className="catergories__name">Cricket {prodCat.categoryName}</span>
+			<Link
+				to="/productlisting"
+				onClick={() =>
+					dispatch({
+						type: "CATEGORY_SELECTION",
+						payload: prodCat.categoryName,
+					})
+				}
+				className="catergories__name"
+			>
+				Cricket {prodCat.categoryName}
+			</Link>
 		</li>
 	);
 };

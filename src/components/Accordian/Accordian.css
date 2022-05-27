@@ -10,7 +10,7 @@
 	align-items: baseline;
 	background-color: var(--COLOR-BG-DETAILS);
 	margin: 0 1rem;
-	padding: 1.6rem;
+	padding: 6px;
 	border-radius: 4px;
 	height: fit-content;
 	gap: 1rem;
@@ -26,6 +26,7 @@ summary {
 	align-items: center;
 	justify-content: space-between;
 	cursor: pointer;
+	padding: 8px;
 }
 
 summary i {

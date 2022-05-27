@@ -125,7 +125,7 @@ export const BillingCard = ({ orderDetails, isAddress, setIsAddress }) => {
 				<div className="bill__description">
 					{orderDetails
 						? "Add/Select address to checkout the items"
-						: "You will save ₹{discount} on this order"}
+						: `You will save ₹${discount} on this order`}
 				</div>
 				{!orderDetails && (
 					<Link to="/checkout" className="bill__submit_btn btn btn--primary">

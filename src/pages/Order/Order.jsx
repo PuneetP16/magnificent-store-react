@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HorizontalCard, Loader } from "../../components";
+import { Loader, OrderCard, OverviewCard } from "../../components";
 import { useLoader } from "../../contexts";
 import "./Order.css";
 import { v4 as uuid } from "uuid";
@@ -22,6 +22,7 @@ export const Order = () => {
 			inStock: true,
 			featured: true,
 			rating: 4,
+			qty: 2,
 		},
 	];
 
@@ -56,13 +57,14 @@ export const Order = () => {
 
 						{orders.length !== 0 &&
 							orders.map((prod) => (
-								<HorizontalCard
+								<OverviewCard
 									prod={prod}
 									featured={false}
 									key={prod._id}
 									isWishlist={false}
 									isCart={true}
 									btnTitle={"Reorder"}
+									reorder={true}
 								/>
 							))}
 					</ul>

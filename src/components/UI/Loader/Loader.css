@@ -19,7 +19,7 @@
 
 .modal_container {
 	position: fixed;
-	backdrop-filter: blur(2px);
+	/* backdrop-filter: blur(2px); */
 	top: 0;
 	bottom: 0;
 	right: 0;

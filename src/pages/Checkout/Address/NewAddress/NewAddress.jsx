@@ -12,10 +12,10 @@ export const NewAddress = () => {
 	const { addressState, addToAddresses } = useAuth();
 	const { axiosRequest } = useAxios();
 	const initialAddress = {
-		name: "",
-		address: "",
-		phoneNumber: "",
-		pincode: "",
+		name: "Travis Balistreri",
+		address: "83150 Blick Grove",
+		phoneNumber: 12326760792,
+		pincode: 1330881,
 	};
 
 	const [addressObj, setAddressObj] = useState(initialAddress);

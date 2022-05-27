@@ -38,3 +38,7 @@
 	text-align: left;
 	font-size: 1.7rem;
 }
+
+.card__actions .reorder_btn {
+	padding: 1px 7px;
+}

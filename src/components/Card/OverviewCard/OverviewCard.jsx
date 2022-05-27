@@ -1,22 +1,28 @@
-import { Rating } from "../../../components";
 import "./OverviewCard.css";
 import { useAxios } from "../../../customHooks";
 import { useCart, useWishlist } from "../../../contexts";
 import { useState } from "react";
 
-export const OverviewCard = ({ prod, btnTitle, featured }) => {
+export const OverviewCard = ({ prod, btnTitle, featured, reorder }) => {
 	const [disable, setDisable] = useState(false);
 	const { axiosRequest } = useAxios();
-	const { removeFromCart, updateQtyInCart } = useCart();
+	const { cart, addToCart, updateQtyInCart, removeFromCart } = useCart();
 	const { addToWishlist, wishlist } = useWishlist();
 
-	const isProductInWishlist =
-		wishlist.findIndex((p) => p._id === prod._id) !== -1;
-
-	const onClickHandler = () => {
+	const productOfCart = cart.find((p) => p._id === prod._id);
+	console.log(productOfCart);
+	const onClickHandler = async () => {
 		setDisable(true);
-		isProductInWishlist ? null : addToWishlist(axiosRequest, prod);
-		removeFromCart(axiosRequest, prod);
+		let qty;
+		if (!!productOfCart) {
+			qty = productOfCart.qty;
+			updateQtyInCart(qty, axiosRequest, prod);
+		} else {
+			qty = prod.qty;
+			await addToCart(axiosRequest, prod);
+			updateQtyInCart(qty, axiosRequest, prod);
+		}
+		console.log(qty);
 	};
 
 	return (
@@ -42,6 +48,17 @@ export const OverviewCard = ({ prod, btnTitle, featured }) => {
 						<div className="card__quantity form__input_box">
 							Product Delivery: 5 Days
 						</div>
+						{reorder && (
+							<div className="card__actions">
+								<button
+									disabled={disable}
+									className="card__button btn btn--outline--primary reorder_btn"
+									onClick={onClickHandler}
+								>
+									{btnTitle}
+								</button>
+							</div>
+						)}
 					</div>
 				</div>
 			</article>

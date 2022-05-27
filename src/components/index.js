@@ -19,3 +19,4 @@ export { OverviewCard } from "./Card/OverviewCard/OverviewCard";
 export { Modal } from "./UI/Modal/Modal";
 export { Accordian } from "./Accordian/Accordian";
 export { AddressCard } from "./Card/AddressCard/AddressCard";
+export { OrderCard } from "./Card/OrderCard/OrderCard";

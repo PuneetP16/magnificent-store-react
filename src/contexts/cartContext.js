@@ -21,7 +21,7 @@ export const CartProvider = ({ children }) => {
 		cartReducer,
 		initialCartState
 	);
-	
+
 	const { theme } = useTheme();
 
 	const addToCart = async (axiosRequest, prod) => {
@@ -72,7 +72,14 @@ export const CartProvider = ({ children }) => {
 	const updateQtyInCart = async (e, axiosRequest, prod) => {
 		try {
 			const cartProductURL = `/api/user/cart/${prod._id}`;
-			const itemQty = Number(e.target.value);
+			console.log(isNaN(e));
+			let itemQty;
+			if (isNaN(e)) {
+				itemQty = Number(e?.target?.value);
+			} else {
+				itemQty = e;
+			}
+
 			const action = { type: "update", qty: itemQty };
 			const { output, error } = await axiosRequest({
 				method: "POST",

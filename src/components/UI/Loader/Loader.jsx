@@ -3,7 +3,7 @@ import { primaryLoader } from "../../../data/image/productImages";
 
 export const Loader = () => {
 	return (
-		<div className="modal_container" style={{ display: "flex" }}>
+		<div className="modal_container backdrop-blur" style={{ display: "flex" }}>
 			<div className="loader_wrapper flex-center">
 				<img
 					src={primaryLoader}
