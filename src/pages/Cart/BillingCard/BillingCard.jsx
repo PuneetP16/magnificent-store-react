@@ -38,7 +38,6 @@ export const BillingCard = ({ orderDetails, isAddress, setIsAddress }) => {
 	};
 
 	const makePaymentHandler = async () => {
-		const amount = original - discount + 499;
 		const res = await loadScript(
 			"https://checkout.razorpay.com/v1/checkout.js"
 		);
@@ -51,7 +50,7 @@ export const BillingCard = ({ orderDetails, isAddress, setIsAddress }) => {
 		const options = {
 			key: process.env.REACT_APP_RAZORPAY_API, // Enter the Key ID generated from the Dashboard
 			currency: "INR",
-			amount: amount * 100,
+			amount: finalPrice * 100,
 			name: "Magnificent Store",
 			description: "Thank you for shopping with Magnificent Store",
 			handler: async function (response) {
