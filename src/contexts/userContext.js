@@ -9,8 +9,8 @@ export const UserProvider = ({ children }) => {
 	const lastLoginDetails = JSON.parse(localStorage.getItem("initialLoginFill"));
 	const initialFormState = lastLoginDetails ?? {
 		loginData: {
-			email: "adarshbalika@gmail.com",
-			password: "adarshBalika123",
+			email: "patelpunit95@gmail.com",
+			password: "Puneet@1995",
 		},
 		userData: {
 			firstName: "",
