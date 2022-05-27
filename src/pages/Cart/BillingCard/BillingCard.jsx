@@ -1,4 +1,5 @@
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { Toast } from "../../../components/UI/Toast/Toast";
 import { useCart, useLoader, useTheme } from "../../../contexts";
 import { useAxios } from "../../../customHooks";
@@ -18,7 +19,10 @@ export const BillingCard = ({ orderDetails, isAddress, setIsAddress }) => {
 	const { axiosRequest } = useAxios();
 	const { original, discount } = totalPrice;
 	const navigate = useNavigate();
-
+	const subTotal = original - discount + 499;
+	const [finalPrice, setFinalPrice] = useState(subTotal);
+	const [isCoupon, setIsCoupon] = useState(false);
+	const [couponInput, setCouponInput] = useState("");
 	const loadScript = (src) => {
 		return new Promise((resolve) => {
 			const script = document.createElement("script");
@@ -74,6 +78,21 @@ export const BillingCard = ({ orderDetails, isAddress, setIsAddress }) => {
 		paymentObject.open();
 	};
 
+	const setCoupon = (e) => {
+		e.preventDefault();
+		if (isCoupon) {
+			Toast("warning", "Coupon Already Applied", theme);
+		} else {
+			if (couponInput === "free50") {
+				setFinalPrice((prevPrice) => prevPrice * 0.5);
+				Toast("success", "Coupon Applied!", theme);
+				setIsCoupon(true);
+			} else {
+				Toast("error", "Enter Valid Coupon", theme);
+			}
+		}
+	};
+
 	return (
 		<aside className="aside--products billing_section">
 			<section action="post" className="bill_wrapper">
@@ -113,12 +132,28 @@ export const BillingCard = ({ orderDetails, isAddress, setIsAddress }) => {
 							</div>
 						</li>
 					</ul>
+					{orderDetails && (
+						<form className="coupon" onSubmit={setCoupon}>
+							<input
+								placeholder="try free50"
+								className="input_box coupon__input_box"
+								value={couponInput}
+								onChange={(e) => setCouponInput(e.target.value)}
+							/>
+							<button
+								type="submit"
+								className="coupon__btn btn btn--outline--primary"
+							>
+								ADD COUPON
+							</button>
+						</form>
+					)}
 				</section>
 				<hr />
 				<ul className="bill__total">
 					<li className="bill__item">TOTAL AMOUNT</li>
 					<li className="bill__item">
-						₹<span id="final-total">{original - discount + 499}</span>
+						₹<span id="final-total">{finalPrice}</span>
 					</li>
 				</ul>
 				<hr />

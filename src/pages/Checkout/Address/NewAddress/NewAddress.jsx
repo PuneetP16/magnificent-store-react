@@ -12,10 +12,10 @@ export const NewAddress = () => {
 	const { addressState, addToAddresses } = useAuth();
 	const { axiosRequest } = useAxios();
 	const initialAddress = {
-		name: "Travis Balistreri",
-		address: "83150 Blick Grove",
-		phoneNumber: 12326760792,
-		pincode: 1330881,
+		name: "",
+		address: "",
+		phoneNumber: "",
+		pincode: "",
 	};
 
 	const [addressObj, setAddressObj] = useState(initialAddress);
@@ -48,6 +48,15 @@ export const NewAddress = () => {
 
 	const closeModal = () => {
 		setModal((t) => !t);
+	};
+
+	const setDummyAddress = () => {
+		setAddressObj({
+			name: "Travis Balistreri",
+			address: "83150 Blick Grove",
+			phoneNumber: 12326760792,
+			pincode: 1330881,
+		});
 	};
 
 	return (
@@ -116,10 +125,13 @@ export const NewAddress = () => {
 			</form>
 			<section className="save_address__btn">
 				<button
-					className="btn btn--outline--primary"
+					className="btn btn--primary"
 					onClick={saveAddressHandler}
 				>
 					Add Address
+				</button>
+				<button className="btn btn--outline--primary" onClick={setDummyAddress}>
+					Dummy Address
 				</button>
 			</section>
 		</section>

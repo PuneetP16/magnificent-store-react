@@ -11,9 +11,9 @@
 }
 
 .address__section .form {
-    padding: 0;
-    box-shadow: none;
-    margin: 1rem 0;
+	padding: 0;
+	box-shadow: none;
+	margin: 1rem 0;
 }
 
 .address__section .h3 {
@@ -53,6 +53,7 @@
 	align-content: center;
 	flex-wrap: wrap;
 	transition: background-color 0.1 ease-in;
+	gap: 1rem;
 }
 
 .save_address__btn .btn {

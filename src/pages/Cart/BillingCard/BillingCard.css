@@ -18,6 +18,10 @@
 	top: 10rem;
 }
 
+.bill_wrapper > h3 {
+	color: var(--COLOR-BLACK);
+}
+
 .bill__items,
 .bill__total {
 	list-style-type: none;
@@ -48,4 +52,24 @@ aside form .h5 {
 
 .cart__wrapper .aside {
 	margin: 0;
+}
+
+.coupon {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.coupon .coupon__input_box,
+.coupon .coupon__btn {
+	padding: 2px 6px;
+	margin-top: 1rem;
+}
+
+.coupon .coupon__btn {
+	font-size: 1.4rem;
+}
+
+.coupon .coupon__input_box {
+	max-width: 10rem;
 }
